@@ -80,5 +80,5 @@ for (const file of [
 ])
   await access(join(ROOT, file));
 console.log(
-  `Geprüft: ${ids.size} Szenen, ${saved.length} Briefings, ${agentNames.size} Agenten, ${skills} Studio-Skills und lokale Medien.`,
+  `Geprüft: ${ids.size} Szenen, ${saved.length} Briefings, ${agentNames.size} Agenten, ${skills} Produktions-Skills und lokale Medien.`,
 );

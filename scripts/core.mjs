@@ -7,12 +7,12 @@ import {
   rm,
 } from "node:fs/promises";
 import { randomUUID } from "node:crypto";
-import { resolve, join, relative, sep } from "node:path";
+import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { z } from "zod";
 export const ROOT = fileURLToPath(new URL("../", import.meta.url));
 export const config = JSON.parse(
-  await readFile(join(ROOT, "studio.config.json"), "utf8"),
+  await readFile(join(ROOT, "workspace.config.json"), "utf8"),
 );
 export const slugSchema = z
   .string()
@@ -40,49 +40,6 @@ export const renderSchema = z
     quality: z.enum(["preview", "final"]).default("preview"),
   })
   .strict();
-export function within(root, child) {
-  const path = resolve(root, child),
-    rel = relative(root, path);
-  if (rel === ".." || rel.startsWith(`..${sep}`) || resolve(child) === child)
-    throw new Error("Ungültiger Dateipfad.");
-  return path;
-}
-export function originAllowed(origin, host, port) {
-  const hosts = new Set([`127.0.0.1:${port}`, `localhost:${port}`]);
-  if (!hosts.has(host)) return false;
-  if (!origin) return true;
-  try {
-    const url = new URL(origin);
-    return url.protocol === "http:" && hosts.has(url.host);
-  } catch {
-    return false;
-  }
-}
-export function byteRange(header, size) {
-  if (!header) return null;
-  const match = /^bytes=(\d*)-(\d*)$/.exec(header);
-  if (!match || (!match[1] && !match[2]))
-    throw new Error("Ungültiger Byte-Bereich.");
-  let start, end;
-  if (!match[1]) {
-    const suffix = Number(match[2]);
-    if (!suffix) throw new Error("Ungültiger Byte-Bereich.");
-    start = Math.max(0, size - suffix);
-    end = size - 1;
-  } else {
-    start = Number(match[1]);
-    end = match[2] ? Math.min(Number(match[2]), size - 1) : size - 1;
-  }
-  if (
-    !Number.isSafeInteger(start) ||
-    !Number.isSafeInteger(end) ||
-    start < 0 ||
-    start >= size ||
-    end < start
-  )
-    throw new Error("Byte-Bereich außerhalb der Datei.");
-  return { start, end };
-}
 export async function projects() {
   await mkdir(join(ROOT, "projects"), { recursive: true });
   const entries = await readdir(join(ROOT, "projects"), {

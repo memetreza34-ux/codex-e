@@ -62,7 +62,7 @@ export async function doctor() {
     f.endsWith(".toml"),
   );
   checks.push({
-    name: "Studio-Agenten",
+    name: "Agenten-Rollen",
     ok: agents.length === 6,
     detail: `${agents.length} Projektrollen konfiguriert`,
     required: true,

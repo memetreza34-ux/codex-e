@@ -1,4 +1,4 @@
-name: Studio prüfen
+name: Arbeitsordner prüfen
 on: [push, pull_request]
 permissions:
   contents: read
@@ -15,6 +15,5 @@ jobs:
       - run: npm ci
       - run: npm run check
       - run: npm test
-      - run: npm run build
       - name: Ein Bild der Beispielszene rendern
         run: npx remotion still src/remotion/index.ts DatenErklaert work/ci-frame.png --frame=240 --scale=0.25 --gl=swangle --disable-shared-memory-capture

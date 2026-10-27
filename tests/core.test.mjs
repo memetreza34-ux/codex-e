@@ -3,14 +3,7 @@ import assert from "node:assert/strict";
 import { mkdtemp, readFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import {
-  within,
-  originAllowed,
-  briefSchema,
-  renderSchema,
-  saveProject,
-  byteRange,
-} from "../scripts/core.mjs";
+import { briefSchema, renderSchema, saveProject } from "../scripts/core.mjs";
 const brief = {
   id: "test-film",
   title: "Wie eine Webseite entsteht",
@@ -74,40 +67,4 @@ test("Projekt- und Render-Eingaben lehnen Pfadtricks und fremde Szenen ab", () =
       .success,
     true,
   );
-});
-test("Exportpfade bleiben im ausgewählten Verzeichnis", () => {
-  assert.equal(
-    within("/tmp/studio-output", "scene.mp4"),
-    "/tmp/studio-output/scene.mp4",
-  );
-  assert.throws(() => within("/tmp/studio-output", "../outside.mp4"));
-  assert.throws(() => within("/tmp/studio-output", "/etc/passwd"));
-});
-test("Lokale Schreibzugriffe akzeptieren keine fremden Webseiten oder Hosts", () => {
-  assert.equal(
-    originAllowed("http://localhost:3140", "localhost:3140", 3140),
-    true,
-  );
-  assert.equal(originAllowed(undefined, "127.0.0.1:3140", 3140), true);
-  assert.equal(
-    originAllowed("https://example.com", "localhost:3140", 3140),
-    false,
-  );
-  assert.equal(
-    originAllowed("http://localhost:3140", "attacker.example:3140", 3140),
-    false,
-  );
-  assert.equal(
-    originAllowed("http://localhost:3141", "localhost:3140", 3140),
-    false,
-  );
-});
-test("Videoseeking liefert begrenzte und offene Byte-Bereiche", () => {
-  assert.deepEqual(byteRange("bytes=100-199", 1000), { start: 100, end: 199 });
-  assert.deepEqual(byteRange("bytes=900-", 1000), { start: 900, end: 999 });
-  assert.deepEqual(byteRange("bytes=-100", 1000), { start: 900, end: 999 });
-  assert.deepEqual(byteRange("bytes=900-1200", 1000), { start: 900, end: 999 });
-  assert.throws(() => byteRange("bytes=1500-", 1000));
-  assert.throws(() => byteRange("bytes=200-100", 1000));
-  assert.throws(() => byteRange("bytes=0-1,4-5", 1000));
 });

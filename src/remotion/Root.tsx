@@ -1,5 +1,5 @@
 import { Composition } from "remotion";
-import config from "../../studio.config.json";
+import config from "../../workspace.config.json";
 import { sceneComponents } from "./registry";
 export const Root = () => (
   <>
