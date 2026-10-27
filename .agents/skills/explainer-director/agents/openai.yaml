@@ -1,0 +1,4 @@
+interface:
+  display_name: "Erklärfilm-Regie"
+  short_description: "Vom Briefing zur verständlichen, geprüften Szene"
+  default_prompt: "Nutze $explainer-director für einen neuen Erklärfilm in diesem Studio."

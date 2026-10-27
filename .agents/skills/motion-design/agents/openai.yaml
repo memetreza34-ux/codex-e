@@ -1,0 +1,4 @@
+interface:
+  display_name: "Motion Design"
+  short_description: "Zusammenhängende Erkläranimationen in Remotion gestalten"
+  default_prompt: "Nutze $motion-design, um diese Szene sichtbar und verständlich zu animieren."

@@ -1,0 +1,56 @@
+{
+  "name": "Codex E",
+  "scenes": [
+    {
+      "id": "WebsiteSzene",
+      "title": "Ein Klick. Eine Webseite.",
+      "subtitle": "Browser, Server und das Bild dazwischen.",
+      "durationInFrames": 420,
+      "fps": 30,
+      "width": 1920,
+      "height": 1080,
+      "posterFrame": 350,
+      "tags": ["Technik", "2D + Perspektive"],
+      "beats": [
+        { "label": "Der Klick", "from": 0, "to": 88 },
+        { "label": "Die Anfrage", "from": 88, "to": 183 },
+        { "label": "Die Dateien", "from": 183, "to": 281 },
+        { "label": "Die Webseite", "from": 281, "to": 420 }
+      ]
+    },
+    {
+      "id": "DatenErklaert",
+      "title": "Was ein Durchschnitt verbirgt.",
+      "subtitle": "Ein Datenbild, das die Frage sichtbar macht.",
+      "durationInFrames": 300,
+      "fps": 30,
+      "width": 1920,
+      "height": 1080,
+      "posterFrame": 240,
+      "tags": ["Daten", "Diagramm"],
+      "beats": [
+        { "label": "Die Zahl", "from": 0, "to": 80 },
+        { "label": "Die Verteilung", "from": 80, "to": 220 },
+        { "label": "Die Erkenntnis", "from": 220, "to": 300 }
+      ]
+    }
+  ],
+  "skillsSource": {
+    "repository": "remotion-dev/skills",
+    "commit": "30d4553ecd46fbc5212fd0ff006ae43af522158b",
+    "names": [
+      "remotion-best-practices",
+      "remotion-create",
+      "remotion-markup",
+      "remotion-studio",
+      "remotion-render",
+      "remotion-captions",
+      "remotion-interactivity",
+      "remotion-maps",
+      "remotion-multimedia",
+      "remotion-saas",
+      "remotion-docs",
+      "remotion-upgrade"
+    ]
+  }
+}

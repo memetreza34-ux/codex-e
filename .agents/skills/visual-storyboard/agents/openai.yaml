@@ -1,0 +1,4 @@
+interface:
+  display_name: "Visuelles Storyboard"
+  short_description: "Eine verständliche Bildfolge mit Ursache und Wirkung"
+  default_prompt: "Nutze $visual-storyboard für die Bildfolge meines Erklärfilms."

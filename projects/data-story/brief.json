@@ -1,0 +1,10 @@
+{
+  "id":"data-story",
+  "title":"Was ein Durchschnitt verbirgt",
+  "topic":"Zwei Gruppen haben denselben arithmetischen Mittelwert von fünf. Die Werte [5,5,5,5,5] und [1,2,5,8,9] zeigen beim Auflösen der Balken unterschiedliche Verteilungen. Es handelt sich um illustrative Zahlen, nicht um eine reale Studie.",
+  "audience":"Menschen, die Diagramme verstehen möchten",
+  "duration":10,
+  "format":"16:9",
+  "style":"Ruhiges Datenbild mit zwei nebeneinanderliegenden Gruppen und einer gemeinsamen Mittelwertlinie.",
+  "compositionId":"DatenErklaert"
+}

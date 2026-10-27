@@ -1,0 +1,10 @@
+{
+  "id": "warum-ladt-eine-website-beim-zweiten-mal-schneller",
+  "title": "Warum lädt eine Website beim zweiten Mal schneller?",
+  "topic": "Zeige, wie der Browser bereits geladene Dateien zwischenspeichert und bei einem weiteren Besuch wiederverwenden kann. Erkläre den Unterschied zwischen erneutem Herunterladen und gültigem Cache. Nicht jede Ressource kommt immer aus dem Cache.",
+  "audience": "Neugierige Einsteiger",
+  "duration": 30,
+  "format": "16:9",
+  "style": "Zusammenhängende Szenen, klare Diagramme, Bewegung zeigt Ursache und Wirkung.",
+  "compositionId": null
+}

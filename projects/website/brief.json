@@ -1,0 +1,10 @@
+{
+  "id":"website",
+  "title":"Wie aus einem Klick eine Webseite wird",
+  "topic":"Zeige vereinfacht, wie der Browser Dateien vom Server anfordert und daraus eine sichtbare Seite aufbaut. HTML, CSS und JavaScript können getrennte Ressourcen und Anfragen sein; die Animation fasst den Ablauf schematisch zusammen.",
+  "audience":"Neugierige Einsteiger ohne Vorwissen",
+  "duration":14,
+  "format":"16:9",
+  "style":"Zusammenhängender Browser-Server-Ablauf, zurückhaltende Farben, Perspektivwechsel und ein sichtbarer Aufbau der Seite. Delbas technische Erklärvideos dienen als Referenz für klare Diagramme.",
+  "compositionId":"WebsiteSzene"
+}

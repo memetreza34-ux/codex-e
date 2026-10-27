@@ -1,0 +1,4 @@
+interface:
+  display_name: "Render und Abnahme"
+  short_description: "Video exportieren und Bild, Timing und technische Daten prüfen"
+  default_prompt: "Nutze $render-qa für eine geprüfte Vorschau dieser Szene."
