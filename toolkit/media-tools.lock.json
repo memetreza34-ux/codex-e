@@ -1,0 +1,24 @@
+{
+  "heygen": {
+    "version": "0.11.0",
+    "repository": "https://github.com/heygen-com/heygen-cli",
+    "assets": {
+      "darwin-arm64": {
+        "name": "heygen_v0.11.0_darwin_arm64.tar.gz",
+        "sha256": "d5fbb053ec2561d8091fa6926b6f7b8f5ed617368522e5c3f6e5221eacc134c2"
+      },
+      "darwin-x64": {
+        "name": "heygen_v0.11.0_darwin_amd64.tar.gz",
+        "sha256": "186e20ff5368eae66706e1b86c24bd466f3d6e6c421c68d7ee9afbebf0f832f6"
+      },
+      "linux-arm64": {
+        "name": "heygen_v0.11.0_linux_arm64.tar.gz",
+        "sha256": "fade4b9e878f37a26cf94f54b4239eb6f7d195b1ebd7ae9530634575e6650779"
+      },
+      "linux-x64": {
+        "name": "heygen_v0.11.0_linux_amd64.tar.gz",
+        "sha256": "9ffe51ddd419262af5f24af54cf1c2aa1e944d2596b5012b4c5468330b52a5a9"
+      }
+    }
+  }
+}

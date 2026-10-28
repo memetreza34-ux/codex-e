@@ -46,11 +46,21 @@ for (const file of await readdir(join(ROOT, ".codex/agents"))) {
   agentNames.add(a.name);
 }
 toml(await readFile(join(ROOT, ".codex/config.toml"), "utf8"));
+const externalSkills = new Set(
+  (config.extraSkillsSources || []).flatMap((source) =>
+    source.skills.map((skill) => skill.name),
+  ),
+);
 let skills = 0;
 for (const dir of await readdir(join(ROOT, ".agents/skills"), {
   withFileTypes: true,
 })) {
-  if (!dir.isDirectory() || dir.name.startsWith("remotion-")) continue;
+  if (
+    !dir.isDirectory() ||
+    dir.name.startsWith("remotion-") ||
+    externalSkills.has(dir.name)
+  )
+    continue;
   const text = await readFile(
     join(ROOT, ".agents/skills", dir.name, "SKILL.md"),
     "utf8",
@@ -68,6 +78,27 @@ for (const dir of await readdir(join(ROOT, ".agents/skills"), {
   );
   skills++;
 }
+for (const name of config.agentRoles || [])
+  if (!agentNames.has(name))
+    throw new Error(`Konfigurierte Agentenrolle fehlt: ${name}`);
+let extraInstalled = 0;
+for (const name of externalSkills) {
+  let source;
+  try {
+    source = await readFile(
+      join(ROOT, ".agents/skills", name, "SKILL.md"),
+      "utf8",
+    );
+  } catch (error) {
+    if (error.code === "ENOENT") continue;
+    throw error;
+  }
+  const front = source.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  const meta = front && yaml(front[1]);
+  if (!meta || meta.name !== name || !meta.description)
+    throw new Error(`Fremd-Skill ungültig: ${name}`);
+  extraInstalled++;
+}
 const saved = await projects();
 for (const brief of saved)
   if (brief.compositionId && !ids.has(brief.compositionId))
@@ -80,5 +111,5 @@ for (const file of [
 ])
   await access(join(ROOT, file));
 console.log(
-  `Geprüft: ${ids.size} Szenen, ${saved.length} Briefings, ${agentNames.size} Agenten, ${skills} Produktions-Skills und lokale Medien.`,
+  `Geprüft: ${ids.size} Szenen, ${saved.length} Briefings, ${agentNames.size} Agenten, ${skills} Produktions-Skills, ${extraInstalled}/${externalSkills.size} Zusatz-Skills und lokale Medien.`,
 );

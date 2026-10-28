@@ -17,7 +17,14 @@
     "audio:normalize": "node scripts/cli.mjs audio",
     "postinstall": "node scripts/prepare-assets.mjs",
     "format": "prettier --write src scripts tests docs package.json workspace.config.json tsconfig.json remotion.config.ts README.md AGENTS.md",
-    "preview": "remotion studio src/remotion/index.ts --no-open"
+    "preview": "remotion studio src/remotion/index.ts --no-open",
+    "media:import": "node scripts/media/library.mjs import",
+    "media:verify": "node scripts/media/library.mjs verify",
+    "media:credits": "node scripts/media/library.mjs credits",
+    "media:setup": "node scripts/media/install-tools.mjs",
+    "media:doctor": "node scripts/media/doctor.mjs",
+    "heygen": "node scripts/media/heygen.mjs",
+    "media:demo": "node scripts/media/render-demo.mjs"
   },
   "dependencies": {
     "@react-three/fiber": "9.6.1",

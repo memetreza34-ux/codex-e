@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kurzfilm-Dramaturgie"
+  short_description: "Ganze Erklärfilme mit Frage, Wendepunkten und Auflösung planen"
+  default_prompt: "Nutze $shortform-dramaturgy für dieses Erklärvideo."

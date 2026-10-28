@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "id": "clock-cutout-illustration",
+      "title": "Uhr – freigestellte 3D-Illustration",
+      "kind": "illustration",
+      "path": "public/assets/library/clock-cutout.png",
+      "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Clock-front-color.png/1280px-Clock-front-color.png",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Clock-front-color.png",
+      "author": "Vijay Verma ( https://vijayverma.co/?ref=3dicons / https://web.archive.org/web/20230821152010/https://vijayverma.co/?ref=3dicons )",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "changes": "Offizielle verkleinerte Wikimedia-Datei; keine inhaltliche Bearbeitung",
+      "visualReview": "Quelldatei und Export-Stichproben geprüft",
+      "sha256": "2475470fe28bbafb578ab1d8b7dddcf5bd25005baaae9ff37a630831dfed6cad",
+      "bytes": 689137,
+      "registeredAt": "2026-10-28T17:11:16.305Z"
+    },
+    {
+      "id": "studio-small-09-hdri",
+      "title": "Studio Small 09 – Studiobeleuchtung",
+      "kind": "environment",
+      "path": "public/assets/library/studio-small-09.hdr",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/studio_small_09_1k.hdr",
+      "expectedMd5": "d5d7eb9d26d341d6aa4d11c1a54fd97c",
+      "sourcePage": "https://polyhaven.com/a/studio_small_09",
+      "author": "Sergej Majboroda / Poly Haven",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "changes": "Unveränderte 1K-HDR-Datei",
+      "visualReview": "Im tatsächlichen Remotion-Uhrbild geprüft",
+      "sha256": "e7cfda5f4e98e623db12b8bfd0184e048488e4855d9c83e2751fb44a32e80c45",
+      "bytes": 1615248,
+      "registeredAt": "2026-10-28T17:11:16.645Z"
+    },
+    {
+      "id": "earth-apollo-photo",
+      "title": "The Blue Marble – echtes Apollo-17-Foto",
+      "kind": "photograph",
+      "path": "public/assets/library/earth-apollo.jpg",
+      "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1920px-The_Earth_seen_from_Apollo_17.jpg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:The_Earth_seen_from_Apollo_17.jpg",
+      "author": "NASA / Apollo 17 crew",
+      "license": "public-domain",
+      "rightsReason": "US-Regierungswerk der NASA; spezifische Datei ist als Public Domain gekennzeichnet.",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-USGov-NASA",
+      "changes": "Offizielle verkleinerte Wikimedia-Datei; Bildinhalt unverändert",
+      "visualReview": "Quelldatei und Export-Stichproben geprüft",
+      "sha256": "b9a1228a5957cfade55cd19656ae3b0cab0237a4be71634e3095102921187253",
+      "bytes": 811693,
+      "registeredAt": "2026-10-28T17:17:11.801Z"
+    },
+    {
+      "id": "studio-clock-model",
+      "title": "Studiouhr mit beweglichen Zeigern",
+      "kind": "model",
+      "path": "public/assets/library/studio-clock.glb",
+      "author": "Codex E Projekt",
+      "sourcePage": "../scripts/blender/make-clock.py",
+      "license": "project-owned",
+      "changes": "Eigenes prozedurales Blender-Modell; GLB Y-up",
+      "visualReview": "Blender-Prüfbild und Remotion-Export-Stichproben geprüft",
+      "sha256": "d38f13e2034897efc55d07f971aad5f8ff71d121cdf2ff3f9ebb3e9a05f4f596",
+      "bytes": 830384,
+      "registeredAt": "2026-10-28T17:21:56.973Z"
+    }
+  ]
+}

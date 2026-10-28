@@ -7,9 +7,9 @@
 | Rendern                   | npm run render -- SzenenID, zusätzlich --final für volle Auflösung |
 | Technische Prüfung        | FFprobe, Kontaktbögen und QA-Bericht über npm run qa               |
 | Ton                       | FFmpeg und npm run audio:normalize                                 |
-| Wiederverwendbare Abläufe | Vier eigene Skills unter .agents/skills                            |
+| Wiederverwendbare Abläufe | Neun eigene Skills unter .agents/skills                            |
 | Remotion-Wissen           | Zwölf offizielle Skills, npm run skills:sync                       |
-| Spezialrollen             | Sechs Projektagenten unter .codex/agents                           |
+| Spezialrollen             | Zehn Projektagenten unter .codex/agents                            |
 | Einrichtung prüfen        | npm run doctor                                                     |
 | Vorschau bei Bedarf       | Remotions vorhandenes Werkzeug, npm run preview                    |
 
@@ -25,7 +25,7 @@ Alle Remotion-Pakete sind auf 4.0.539 festgelegt. Die offiziellen Skills sind au
 
 Zod ist bewusst auf 4.6.7 überschrieben, um GHSA-mrhx-c7xc-m3w5 zu beheben. Remotion erwartet derzeit exakt 4.5.4 und kann deshalb eine Versionswarnung ausgeben. Eingabevalidierung und reale Exporte wurden mit der gepatchten Version geprüft. Bei Remotion-Updates die Abweichung erneut beurteilen.
 
-Chrome wird lokal erkannt. Alternativ REMOTION_BROWSER_EXECUTABLE setzen. Shared-Memory-Capture bleibt deaktiviert, da hier bei System-Chrome bereits gekachelte Frames aufgetreten sind.
+Chrome wird lokal erkannt. Alternativ REMOTION_BROWSER_EXECUTABLE setzen. Shared-Memory-Capture bleibt deaktiviert, da hier bei System-Chrome bereits gekachelte Frames aufgetreten sind. Auf macOS rendert die Pipeline vorsorglich mit einem Tab: In einem Export mit zwei Tabs waren erneut zwei von 420 Frames betroffen; ein separat gerenderter 31-Frame-Abschnitt mit einem Tab war sauber. Das grenzt den Fehler ein, belegt aber noch keine eindeutige Ursache. Visuelle Abnahme bleibt erforderlich.
 
 Wenn Remotions Vorschau geöffnet wird, stehen in einem passenden Browser dessen WebMCP-Werkzeuge zum Lesen und Steuern der Timeline bereit. Es wird dafür kein eigener Dienst eingerichtet.
 
@@ -37,3 +37,11 @@ Wenn Remotions Vorschau geöffnet wird, stehen in einem passenden Browser dessen
 - https://www.remotion.dev/docs/ai/webmcp
 - https://www.remotion.dev/docs/license
 - https://github.com/advisories/GHSA-mrhx-c7xc-m3w5
+
+Zehn zusätzliche externe Skills und ihr tatsächlicher Einrichtungsstand sind in toolkit.md dokumentiert. Die installierten Skill-Bundles sind keine Zusage über angemeldete externe Dienste.
+
+## Erweiterte Medienwerkstatt
+
+[Hybrid-Medien](hybrid-media.md) dokumentiert Asset-Import, Rechte, Blender, HDRI und Anbieter. Lokal geprüft sind Blender 5.2.2 LTS und die projektspezifische HeyGen CLI v0.11.0. HeyGen und Higgsfield melden Anmeldebedarf. Der optionale HeyGen-Pluginanschluss wurde vorgeschlagen, ist aber nicht als verbunden bestätigt.
+
+GLB- und HDRI-Lader unter src/remotion/components warten render-synchron auf lokale Dateien. MediaHero lädt Bilder aus public/. Alle Bewegungen sind framebasiert. Die vorhandenen Host-Bildwerkzeuge bleiben für neue Bilder und Freistellaufgaben verfügbar; diese Erweiterung hat keine neue KI-Bildgenerierung ausgeführt.

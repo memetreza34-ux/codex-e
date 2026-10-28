@@ -3,7 +3,7 @@ import { existsSync } from "node:fs";
 Config.setRspack(true);
 Config.setVideoImageFormat("png");
 Config.setDisableSharedMemoryCapture(true);
-Config.setConcurrency(2);
+Config.setConcurrency(process.platform === "darwin" ? 1 : 2);
 const browser =
   process.env.REMOTION_BROWSER_EXECUTABLE ||
   (process.platform === "darwin"

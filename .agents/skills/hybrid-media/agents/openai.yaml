@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fotos und Animation kombinieren"
+  short_description: "Passende Fotos, Illustrationen und Modelle im Film verbinden"
+  default_prompt: "Nutze $hybrid-media für die Medienplanung und Bildkomposition."

@@ -12,10 +12,26 @@
       "posterFrame": 350,
       "tags": ["Technik", "2D + Perspektive"],
       "beats": [
-        { "label": "Der Klick", "from": 0, "to": 88 },
-        { "label": "Die Anfrage", "from": 88, "to": 183 },
-        { "label": "Die Dateien", "from": 183, "to": 281 },
-        { "label": "Die Webseite", "from": 281, "to": 420 }
+        {
+          "label": "Der Klick",
+          "from": 0,
+          "to": 88
+        },
+        {
+          "label": "Die Anfrage",
+          "from": 88,
+          "to": 183
+        },
+        {
+          "label": "Die Dateien",
+          "from": 183,
+          "to": 281
+        },
+        {
+          "label": "Die Webseite",
+          "from": 281,
+          "to": 420
+        }
       ]
     },
     {
@@ -29,9 +45,173 @@
       "posterFrame": 240,
       "tags": ["Daten", "Diagramm"],
       "beats": [
-        { "label": "Die Zahl", "from": 0, "to": 80 },
-        { "label": "Die Verteilung", "from": 80, "to": 220 },
-        { "label": "Die Erkenntnis", "from": 220, "to": 300 }
+        {
+          "label": "Die Zahl",
+          "from": 0,
+          "to": 80
+        },
+        {
+          "label": "Die Verteilung",
+          "from": 80,
+          "to": 220
+        },
+        {
+          "label": "Die Erkenntnis",
+          "from": 220,
+          "to": 300
+        }
+      ]
+    },
+    {
+      "id": "AfrikaStudie",
+      "title": "Afrika – viele Länder, ein Kontinent",
+      "subtitle": "Eine plastische Geografie-Szene als eigene Referenzstudie.",
+      "durationInFrames": 420,
+      "fps": 30,
+      "width": 1080,
+      "height": 1920,
+      "posterFrame": 360,
+      "tags": ["Geografie", "3D"],
+      "beats": [
+        {
+          "label": "Die Karte",
+          "from": 0,
+          "to": 91
+        },
+        {
+          "label": "Ägypten",
+          "from": 91,
+          "to": 165
+        },
+        {
+          "label": "Nigeria",
+          "from": 165,
+          "to": 239
+        },
+        {
+          "label": "Südafrika",
+          "from": 239,
+          "to": 313
+        },
+        {
+          "label": "Ein Kontinent",
+          "from": 313,
+          "to": 420
+        }
+      ]
+    },
+    {
+      "id": "AfrikaReise",
+      "title": "Afrika – drei Stationen",
+      "subtitle": "Vom Nil über Abuja zum Kap Agulhas.",
+      "durationInFrames": 1050,
+      "fps": 30,
+      "width": 1080,
+      "height": 1920,
+      "posterFrame": 300,
+      "tags": ["Geografie", "3D", "Miniaturen"],
+      "beats": [
+        {
+          "label": "Der Kontinent",
+          "from": 0,
+          "to": 110
+        },
+        {
+          "label": "Ägypten und der Nil",
+          "from": 110,
+          "to": 365
+        },
+        {
+          "label": "Nigeria und Abuja",
+          "from": 365,
+          "to": 615
+        },
+        {
+          "label": "Südafrika und zwei Ozeane",
+          "from": 615,
+          "to": 865
+        },
+        {
+          "label": "Viele Geschichten",
+          "from": 865,
+          "to": 1050
+        }
+      ]
+    },
+    {
+      "id": "PopcornLabor",
+      "title": "Ein Korn. Ein Knall.",
+      "subtitle": "Wasser, Druck und die Verwandlung zu Popcorn.",
+      "durationInFrames": 720,
+      "fps": 30,
+      "width": 1080,
+      "height": 1920,
+      "posterFrame": 610,
+      "tags": ["Wissenschaft", "3D", "Makro"],
+      "beats": [
+        {
+          "label": "Ein Korn",
+          "from": 0,
+          "to": 92
+        },
+        {
+          "label": "Der Schnitt",
+          "from": 92,
+          "to": 269
+        },
+        {
+          "label": "Wärme",
+          "from": 269,
+          "to": 390
+        },
+        {
+          "label": "Druck",
+          "from": 390,
+          "to": 480
+        },
+        {
+          "label": "Pop",
+          "from": 480,
+          "to": 570
+        },
+        {
+          "label": "Die Verwandlung",
+          "from": 570,
+          "to": 660
+        },
+        {
+          "label": "Popcorn",
+          "from": 660,
+          "to": 720
+        }
+      ]
+    },
+    {
+      "id": "HybridAssets",
+      "title": "Foto, Illustration und animierbares Modell",
+      "subtitle": "Neun Sekunden Medienstudie, kein fertiger Erklärfilm.",
+      "durationInFrames": 270,
+      "fps": 30,
+      "width": 1080,
+      "height": 1920,
+      "posterFrame": 230,
+      "tags": ["Medienstudie", "Foto", "3D"],
+      "beats": [
+        {
+          "label": "Foto",
+          "from": 0,
+          "to": 90
+        },
+        {
+          "label": "Illustration",
+          "from": 90,
+          "to": 180
+        },
+        {
+          "label": "Modell",
+          "from": 180,
+          "to": 270
+        }
       ]
     }
   ],
@@ -52,5 +232,93 @@
       "remotion-docs",
       "remotion-upgrade"
     ]
-  }
+  },
+  "extraSkillsSources": [
+    {
+      "repository": "anthropics/skills",
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "skills": [
+        {
+          "name": "canvas-design",
+          "path": "skills/canvas-design",
+          "purpose": "Eigene statische Stilbilder und Bildkomposition"
+        }
+      ]
+    },
+    {
+      "repository": "heygen-com/hyperframes",
+      "commit": "8b1f88b3c06175f43fbdbe1af6e53933847cb195",
+      "skills": [
+        {
+          "name": "hyperframes",
+          "path": "skills/hyperframes",
+          "purpose": "Ergänzende HTML-Video-Komposition"
+        },
+        {
+          "name": "hyperframes-cli",
+          "path": "skills/hyperframes-cli",
+          "purpose": "CLI- und Exportwissen für HyperFrames"
+        },
+        {
+          "name": "hyperframes-registry",
+          "path": "skills/hyperframes-registry",
+          "purpose": "Wissen über fertige gestaltbare Videobausteine"
+        },
+        {
+          "name": "media-use",
+          "path": "skills/media-use",
+          "purpose": "Medien, Ton und Herkunft im HyperFrames-Kontext"
+        }
+      ]
+    },
+    {
+      "repository": "heygen-com/skills",
+      "commit": "1bd5e4d33a028dfed3abf504c5e3dd644fb9ea8a",
+      "skills": [
+        {
+          "name": "heygen-avatar",
+          "path": "heygen-avatar",
+          "purpose": "Optionale Figuren und Identität bei ausdrücklichem Auftrag"
+        },
+        {
+          "name": "heygen-video",
+          "path": "heygen-video",
+          "purpose": "HeyGen-Präsenter- und Erklärvideos"
+        },
+        {
+          "name": "heygen-translate",
+          "path": "heygen-translate",
+          "purpose": "Optionale Übersetzung und Vertonung"
+        }
+      ]
+    },
+    {
+      "repository": "higgsfield-ai/skills",
+      "commit": "4d0757471a704dac8729ea3c2ef0f3f330e0d9b6",
+      "skills": [
+        {
+          "name": "higgsfield-generate",
+          "path": "higgsfield-generate",
+          "purpose": "Hochwertige Einzelclips, Bilder und 3D-Assets"
+        },
+        {
+          "name": "higgsfield-faceless-video",
+          "path": "higgsfield-faceless-video",
+          "purpose": "Erklärvideos ohne sichtbaren Sprecher"
+        }
+      ]
+    }
+  ],
+  "agentRoles": [
+    "researcher",
+    "story_designer",
+    "art_director",
+    "motion_designer",
+    "audio_director",
+    "quality_reviewer",
+    "reference_analyst",
+    "format_editor",
+    "asset_researcher",
+    "compositing_artist"
+  ]
 }

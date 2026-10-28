@@ -140,7 +140,7 @@ export async function renderVideo(
     "--codec=h264",
     "--image-format=png",
     "--disable-shared-memory-capture",
-    "--concurrency=2",
+    `--concurrency=${process.platform === "darwin" ? 1 : 2}`,
     "--log=error",
     `--scale=${quality === "preview" ? 0.5 : 1}`,
     `--crf=${quality === "preview" ? 24 : 18}`,

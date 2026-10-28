@@ -1,0 +1,44 @@
+{
+  "checkedAt": "2026-10-28T18:32:14.201Z",
+  "composition": "HybridAssets",
+  "frames": 270,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "duration": 9,
+  "audio": false,
+  "export": "renders/HybridAssets-final.mp4 (Git-ignore)",
+  "visualReview": "Acht Stichproben aus Export plus Uhrframe; keine vollständige Echtzeit-Sichtung",
+  "assets": [
+    {
+      "id": "clock-cutout-illustration",
+      "sha256": "2475470fe28bbafb578ab1d8b7dddcf5bd25005baaae9ff37a630831dfed6cad"
+    },
+    {
+      "id": "studio-small-09-hdri",
+      "sha256": "e7cfda5f4e98e623db12b8bfd0184e048488e4855d9c83e2751fb44a32e80c45"
+    },
+    {
+      "id": "earth-apollo-photo",
+      "sha256": "b9a1228a5957cfade55cd19656ae3b0cab0237a4be71634e3095102921187253"
+    },
+    {
+      "id": "studio-clock-model",
+      "sha256": "d38f13e2034897efc55d07f971aad5f8ff71d121cdf2ff3f9ebb3e9a05f4f596"
+    }
+  ],
+  "clockFrameCheck": {
+    "averageLuma": 138.8,
+    "brightFraction": 0.589
+  },
+  "cutoutAlpha": {
+    "transparentPixels": 803556,
+    "totalPixels": 1638400
+  },
+  "tests": {
+    "projectCheck": "passed",
+    "nodeTests": 5,
+    "mediaVerification": "passed",
+    "ownSkillValidation": "passed"
+  }
+}

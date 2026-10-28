@@ -1,0 +1,4 @@
+interface:
+  display_name: "Referenzanalyse"
+  short_description: "Bildsprache und Erzählaufbau von Videoausschnitten vergleichen"
+  default_prompt: "Nutze $reference-breakdown für dieses Erklärvideo."

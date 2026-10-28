@@ -12,8 +12,15 @@ jobs:
         with:
           node-version: 24
           cache: npm
+      - name: Medienwerkzeuge installieren
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
       - run: npm ci
       - run: npm run check
       - run: npm test
+      - run: npm run media:verify
       - name: Ein Bild der Beispielszene rendern
         run: npx remotion still src/remotion/index.ts DatenErklaert work/ci-frame.png --frame=240 --scale=0.25 --gl=swangle --disable-shared-memory-capture
+      - name: GLB und HDRI gemeinsam rendern
+        run: npx remotion still src/remotion/index.ts HybridAssets work/ci-clock.png --frame=230 --scale=0.25 --gl=swangle --disable-shared-memory-capture
+      - name: Fehlendes 3D-Objekt erkennen
+        run: node scripts/media/check-frame.mjs work/ci-clock.png

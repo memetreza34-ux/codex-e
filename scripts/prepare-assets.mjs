@@ -81,3 +81,9 @@ for (let i = 0; i < count; i++) {
 }
 await writeFile("public/audio/website-sound.wav", bytes);
 console.log("Synthetischer Demo-Ton lokal erzeugt.");
+
+await import("./generate-africa-audio.mjs");
+
+await import("./generate-africa-journey-audio.mjs");
+
+await import("./generate-popcorn-audio.mjs");

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Objekte und Übergänge"
+  short_description: "Aussagen mit passenden Objekten und Zustandswechseln erklären"
+  default_prompt: "Nutze $object-choreography für dieses Erklärvideo."

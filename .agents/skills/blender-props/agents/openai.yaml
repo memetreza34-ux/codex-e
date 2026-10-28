@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blender-Objekte für Erklärfilme"
+  short_description: "Detaillierte Objekte mit Materialien und beweglichen Teilen bauen"
+  default_prompt: "Nutze $blender-props für dieses animierbare Objekt."
