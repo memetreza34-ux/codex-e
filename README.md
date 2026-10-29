@@ -7,7 +7,7 @@ Hier arbeitet Codex an Erklärfilmen. Der Ordner enthält Skills, Agenten-Rollen
 - **31 Skills:** neun eigene Produktions-Skills, zwölf offizielle Remotion-Skills und zehn ergänzende Skills von Anthropic, HeyGen und Higgsfield.
 - **Zehn Agenten-Rollen:** Recherche, Referenzanalyse, Storyboard, Gestaltung, Animation, Ton, Formatredaktion, Medienauswahl, Compositing und Qualitätsprüfung.
 - **Werkzeuge:** Remotion, React, TypeScript, Three.js, FFmpeg/FFprobe sowie lokale Render- und Prüfskripte.
-- **Wiederverwendbarer Code:** sechs Beispielanimationen, offene Schriften und synthetischer Demo-Ton. Darunter eine plastische Afrika-Karte, eine Reise mit Miniaturen und eine eigenständige Popcorn-Makroszene.
+- **Wiederverwendbarer Code:** sieben Beispielanimationen, offene Schriften und synthetischer Demo-Ton. Darunter eine plastische Afrika-Karte, eine Reise mit Miniaturen und eine eigenständige Popcorn-Makroszene.
 - **Projektablage:** Briefings, Quellen, Storyboards und Abnahmen unter projects/.
 
 ## Verwendung
@@ -67,3 +67,14 @@ docs/                   Produktionsablauf und Werkzeughinweise
 Die [Medienwerkstatt](docs/hybrid-media.md) ergänzt echte Fotos, transparente Illustrationen, HDRI-Licht und eigene Blender-Modelle. `HybridAssets` ist eine neunsekündige technische Medienstudie. [Medienquellen](media/CREDITS.md) und Prüfsummen liegen im Repository.
 
 `npm run media:verify` prüft Assets. `npm run media:setup` installiert eine festgelegte HeyGen-CLI ausschließlich unter `.tools/`. `npm run media:doctor -- --accounts` prüft Werkzeuge und Accountstatus ohne Generierung. HeyGen und Higgsfield erfordern hier noch eine Anmeldung; es wurden keine bezahlten Generierungen gestartet.
+
+## 30-Sekunden-Beispiel: Schalttag
+
+`Schalttag` verbindet plastischen Papierkalender, laufende Blender-Uhr, echtes NASA-Foto und schematischen Erdumlauf zu einer zusammenhängenden Erklärung. Quellen, Skript und Bildfolge stehen unter projects/leap-day/.
+
+```sh
+node scripts/generate-leap-audio.mjs
+node scripts/render-chunks.mjs Schalttag audio/leap-day.wav
+```
+
+Die Szene enthält eigene synthetische Klänge, keine Sprecherstimme. Der abschnittsweise Export nutzt einen Chrome-Tab und fügt den vollständigen Ton anschließend ohne Abschnittsversatz hinzu. Exporte bleiben lokal unter renders/.

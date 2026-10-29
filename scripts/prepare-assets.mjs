@@ -87,3 +87,5 @@ await import("./generate-africa-audio.mjs");
 await import("./generate-africa-journey-audio.mjs");
 
 await import("./generate-popcorn-audio.mjs");
+
+await import("./generate-leap-audio.mjs");

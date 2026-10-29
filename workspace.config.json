@@ -213,6 +213,44 @@
           "to": 270
         }
       ]
+    },
+    {
+      "id": "Schalttag",
+      "title": "Ein Tag aus vier Jahren",
+      "subtitle": "Warum es den 29. Februar gibt.",
+      "durationInFrames": 900,
+      "fps": 30,
+      "width": 1080,
+      "height": 1920,
+      "posterFrame": 660,
+      "tags": ["Wissen", "Kalender", "Hybrid"],
+      "beats": [
+        {
+          "label": "Dieser Tag",
+          "from": 0,
+          "to": 135
+        },
+        {
+          "label": "Ein Sonnenjahr",
+          "from": 135,
+          "to": 315
+        },
+        {
+          "label": "Zeit sammeln",
+          "from": 315,
+          "to": 492
+        },
+        {
+          "label": "Der Extratag",
+          "from": 492,
+          "to": 711
+        },
+        {
+          "label": "Wieder im Takt",
+          "from": 711,
+          "to": 900
+        }
+      ]
     }
   ],
   "skillsSource": {
