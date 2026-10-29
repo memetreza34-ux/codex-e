@@ -64,6 +64,38 @@
       "sha256": "d38f13e2034897efc55d07f971aad5f8ff71d121cdf2ff3f9ebb3e9a05f4f596",
       "bytes": 830384,
       "registeredAt": "2026-10-28T17:21:56.973Z"
+    },
+    {
+      "id": "calendar-material-v1",
+      "title": "Eigener Kalender-Materialentwurf v1",
+      "kind": "ai-generated",
+      "path": "public/assets/art-direction/calendar-material-v1.png",
+      "author": "Codex E Projekt",
+      "sourcePage": "../projects/style-match/generation.json",
+      "license": "project-owned",
+      "generation": {
+        "tool": "native image_gen",
+        "prompt": "Originales Material-Stilbild eines plastischen Abreißkalenders: faseriges cremefarbenes Papier, dunkelolivgrüner Leinenständer, gebürstete Messingringe, sanftes linkes Studiolicht, ruhige dunkle Bühne. FEBRUAR / 29 / 2028. Vollständiger tatsächlich verwendeter Prompt in projects/style-match/generation.json."
+      },
+      "changes": "Originale KI-Generierung; als Stilbild gespeichert, keine reale Fotografie",
+      "visualReview": "Betrachtet: Papierfasern, Leinen, Messing und Kontaktlicht erkennbar; keine Freigabe als 1:1-Referenzrekonstruktion",
+      "sha256": "8de4f29035dc2758d5d55753208b3e734f2b77d486dceef42dc629557a4bd67f",
+      "bytes": 2233797,
+      "registeredAt": "2026-10-29T14:02:48.151Z"
+    },
+    {
+      "id": "minimal-clock-model",
+      "title": "Eigene schlichte Uhr für Bewegungsprobe",
+      "kind": "model",
+      "path": "public/assets/library/minimal-clock.glb",
+      "author": "Codex E Projekt",
+      "sourcePage": "../scripts/blender/make-clock.py",
+      "license": "project-owned",
+      "changes": "Eigene Modellvariante: schmaler dunkler Ring, Zifferblatt ohne Ziffern, grüne Zeigerspitze",
+      "visualReview": "Uhrframe225 und acht Export-Stichproben betrachtet",
+      "sha256": "f08643bf09c03d037631c0a49e239855ff53c55ad37d3faf8cfd0053a7fb8223",
+      "bytes": 723168,
+      "registeredAt": "2026-10-29T16:32:00.733Z"
     }
   ]
 }

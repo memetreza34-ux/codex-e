@@ -17,6 +17,11 @@ jobs:
       - run: npm ci
       - run: npm run check
       - run: npm test
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Referenzanalyse ohne Medienabhängigkeiten testen
+        run: python -m unittest discover -s tests -p test_reference_analysis.py
       - run: npm run media:verify
       - name: Ein Bild der Beispielszene rendern
         run: npx remotion still src/remotion/index.ts DatenErklaert work/ci-frame.png --frame=240 --scale=0.25 --gl=swangle --disable-shared-memory-capture

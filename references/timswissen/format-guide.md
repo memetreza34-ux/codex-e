@@ -27,3 +27,7 @@ Die Kamera und Karte dominierten fast den gesamten Film. Die Länge wurde über 
 ## Produktionsweg
 
 Referenzanalyse → vollständiges Skript → Storyboard und Objektliste → repräsentative eigene Stilbilder → Animation → passender Ton → Betrachtung des ganzen Films. Remotion ist der bestehende Produktionsweg. Zusätzliche Skills liefern Wissen; sie ersetzen keine gestalterische Entscheidung oder Abnahme.
+
+## Präzisierung nach der vertieften Studie
+
+Die [neuere Auswertung](measured-study.md) und style-profile.json enthalten konkrete betrachtete Stellen und manuelle Objektmaße. Größer ist keine automatische Verbesserung: In zwei Uhrbildern belegt das Objekt rund 53–60 % der Breite. Wiederkehrende Rollen, kurze wechselnde Satzteile und vollflächige Kontextbilder sind Teil der beobachteten Methode. Die ursprüngliche Material-/3D-Fokussierung allein erfasste das Format nicht.

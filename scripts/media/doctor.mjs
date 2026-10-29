@@ -1,14 +1,20 @@
 import { spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";
-import { writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join, delimiter } from "node:path";
 import { ROOT, loadManifest } from "./library.mjs";
+
 const locate = (name) =>
   (process.env.PATH || "")
     .split(delimiter)
-    .map((p) => join(p, name))
+    .map((path) => join(path, name))
     .find(existsSync);
 const localHeygen = join(ROOT, ".tools/bin/heygen");
+const toolPath = (name) =>
+  name === "heygen" && existsSync(localHeygen) ? localHeygen : locate(name);
+const requirements = JSON.parse(
+  await readFile(join(ROOT, "toolkit/providers.json"), "utf8"),
+);
 const rows = [];
 for (const [name, args] of [
   ["ffmpeg", ["-version"]],
@@ -17,62 +23,74 @@ for (const [name, args] of [
   ["higgsfield", ["--version"]],
   ["heygen", ["--version"]],
 ]) {
-  const path =
-    name === "heygen" && existsSync(localHeygen) ? localHeygen : locate(name);
-  const r = path
+  const path = toolPath(name);
+  const result = path
     ? spawnSync(path, args, { encoding: "utf8", timeout: 15000 })
     : null;
   rows.push({
     tool: name,
-    installed: r?.status === 0,
+    installed: Boolean(path),
     version:
-      r?.status === 0
-        ? (r.stdout || r.stderr).split("\n")[0]
-        : "nicht installiert",
-    versionChecked: r?.status === 0,
+      result?.status === 0
+        ? (result.stdout || result.stderr).split("\n")[0]
+        : path
+          ? "Version nicht lesbar"
+          : "nicht gefunden",
+    versionChecked: result?.status === 0,
   });
 }
+
 const accounts = [];
-if (process.argv.includes("--accounts"))
-  for (const name of ["heygen", "higgsfield"]) {
-    const path =
-      name === "heygen" && existsSync(localHeygen) ? localHeygen : locate(name);
+if (process.argv.includes("--accounts")) {
+  for (const provider of requirements.providers.filter(
+    (item) => item.accountStatusCommand,
+  )) {
+    const path = toolPath(provider.id);
     if (!path) {
-      accounts.push({ provider: name, state: "cli-missing" });
+      accounts.push({ provider: provider.id, state: "cli-missing" });
       continue;
     }
-    const args =
-      name === "heygen" ? ["auth", "status"] : ["account", "status", "--json"];
-    const r = spawnSync(path, args, { encoding: "utf8", timeout: 25000 }),
-      text = (r.stdout || "") + " " + (r.stderr || "");
+    const result = spawnSync(path, provider.accountStatusCommand, {
+      encoding: "utf8",
+      timeout: 25000,
+    });
+    const output = (result.stdout || "") + " " + (result.stderr || "");
     accounts.push({
-      provider: name,
+      provider: provider.id,
       state:
-        r.status === 0
+        result.status === 0
           ? "account-status-succeeded"
           : /not authenticated|not logged|session expired|auth login|no token|no session|not signed|no credentials/i.test(
-                text,
+                output,
               )
             ? "login-required"
-            : "status-failed",
+            : "status-unavailable",
       generationTested: false,
     });
   }
+}
 const result = {
+  schemaVersion: 1,
   checkedAt: new Date().toISOString(),
+  requirements: "toolkit/providers.json",
   localTools: rows,
+  accountsChecked: process.argv.includes("--accounts"),
   accounts,
-  assets: (await loadManifest()).assets.map((a) => ({
-    id: a.id,
-    kind: a.kind,
+  assets: (await loadManifest()).assets.map((asset) => ({
+    id: asset.id,
+    kind: asset.kind,
   })),
-  nativeImageGeneration:
-    "Codex-Hostwerkzeug verfügbar; keine neue Generierung geprüft",
-  heygenPlugin: "Verfügbar, Verbindung vom Nutzer noch nicht bestätigt",
+  hostIntegrations: {
+    state: "not-checked",
+    note: "Diese CLI erkennt weder Codex-Hostwerkzeuge noch Plugin-Verbindungen. Ihre Verfügbarkeit im aktiven Auftrag separat prüfen.",
+  },
 };
+const output = join(ROOT, "work/provider-status.json");
+await mkdir(join(ROOT, "work"), { recursive: true });
+await writeFile(output, JSON.stringify(result, null, 2) + "\n");
 console.table(rows);
 if (accounts.length) console.table(accounts);
-await writeFile(
-  join(ROOT, "toolkit/provider-status.json"),
-  JSON.stringify(result, null, 2) + "\n",
+console.log("Lokaler Prüfbericht: work/provider-status.json (Git-ignore).");
+console.log(
+  "Keine Generierung ausgeführt; Host- und Plugin-Verbindungen nicht geprüft.",
 );

@@ -1,12 +1,18 @@
-import bpy, math, sys
+import bpy, math, sys, argparse
 from pathlib import Path
 from mathutils import Vector
 root=Path(__file__).resolve().parents[2]
+parser=argparse.ArgumentParser()
+parser.add_argument('--variant',choices=['studio','minimal'],default='studio')
+parser.add_argument('--no-preview',action='store_true')
+options=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
+minimal=options.variant=='minimal'
+asset_name='minimal-clock' if minimal else 'studio-clock'
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
 def material(name,color,metal=0,rough=.4):
  m=bpy.data.materials.new(name);m.use_nodes=True;p=m.node_tree.nodes.get('Principled BSDF');p.inputs['Base Color'].default_value=(*color,1);p.inputs['Metallic'].default_value=metal;p.inputs['Roughness'].default_value=rough;return m
 black=material('Graphite enamel',(.035,.043,.038),.5,.23)
-gold=material('Brushed warm metal',(.64,.47,.20),.85,.23)
+gold=material('Brushed dark steel' if minimal else 'Brushed warm metal',(.075,.085,.078) if minimal else (.64,.47,.20),.65 if minimal else .85,.29 if minimal else .23)
 face=material('Warm ivory dial',(.86,.84,.75),0,.5)
 ink=material('Charcoal markings',(.025,.03,.027),.1,.38)
 muted=material('Fine typography',(.22,.25,.22),0,.5)
@@ -26,13 +32,13 @@ def box(name,loc,dimensions,mat,bevel=.01):
  if bevel:
   b=o.modifiers.new('Rounded edges','BEVEL');b.width=bevel;b.segments=3;o.modifiers.new('Weighted normals','WEIGHTED_NORMAL')
  return o
-cylinder('case',1.4,.28,0,black);torus('rear rim',1.32,.065,.13,black);torus('polished bezel',1.30,.095,-.15,gold);cylinder('dial',1.22,.027,-.174,face)
+cylinder('case',1.4,.28,0,black);torus('rear rim',1.32,.065,.13,black);torus('polished bezel',1.35 if minimal else 1.30,.027 if minimal else .095,-.15,gold);cylinder('dial',1.31 if minimal else 1.22,.027,-.174,face)
 for i in range(60):
- a=i*math.tau/60;major=i%5==0;r=1.075 if major else 1.10
+ a=i*math.tau/60;major=i%5==0;r=(1.17 if major else 1.23) if minimal else (1.075 if major else 1.10)
  o=box(f'tick-{i:02d}',(math.sin(a)*r,-.198,math.cos(a)*r),(.037 if major else .012,.016,.15 if major else .065),ink,.006);o.rotation_euler[1]=a
-for n in [12,3,6,9]:
+for n in ([] if minimal else [12,3,6,9]):
  a=n*math.tau/12;bpy.ops.object.text_add(location=(math.sin(a)*.85,-.213,math.cos(a)*.85),rotation=(math.pi/2,0,0));o=bpy.context.object;o.name=f'numeral-{n}';o.data.body=str(n);o.data.size=.20;o.data.align_x='CENTER';o.data.align_y='CENTER';o.data.extrude=.001;o.data.materials.append(ink)
-for label,z,size in [('STUDIO',.34,.085),('QUARTZ',-.43,.055)]:
+for label,z,size in ([] if minimal else [('STUDIO',.34,.085),('QUARTZ',-.43,.055)]):
  bpy.ops.object.text_add(location=(0,-.213,z),rotation=(math.pi/2,0,0));o=bpy.context.object;o.name=label.lower();o.data.body=label;o.data.size=size;o.data.align_x='CENTER';o.data.align_y='CENTER';o.data.space_character=1.3;o.data.materials.append(muted)
 def hand(name,length,width,y,angle,mat):
  pivot=bpy.data.objects.new(name,None);bpy.context.collection.objects.link(pivot);pivot.location=(0,y,0)
@@ -41,15 +47,16 @@ def hand(name,length,width,y,angle,mat):
 hand('hour_hand',.67,.085,-.24,math.tau*(10+10/60)/12,ink)
 hand('minute_hand',.93,.052,-.28,math.tau*10/60,ink)
 hand('second_hand',1.02,.018,-.32,math.tau*43/60,red)
-cylinder('pin cap',.09,.045,-.35,gold)
+cylinder('pin cap',.038 if minimal else .09,.045,-.35,red if minimal else gold)
 # A narrow reflective ring suggests the protective glass without obscuring the dial.
-torus('glass edge',1.205,.012,-.255,material('Glass edge',(.83,.89,.87),.4,.1))
+torus('glass edge',1.31 if minimal else 1.205,.008 if minimal else .012,-.255,material('Glass edge',(.83,.89,.87),.4,.1))
 for o in list(bpy.context.scene.objects):
  if o.type=='FONT':bpy.context.view_layer.objects.active=o;o.select_set(True);bpy.ops.object.convert(target='MESH');o.select_set(False)
-out=root/'public/assets/library/studio-clock.glb';out.parent.mkdir(parents=True,exist_ok=True)
+out=root/f'public/assets/library/{asset_name}.glb';out.parent.mkdir(parents=True,exist_ok=True)
 bpy.ops.export_scene.gltf(filepath=str(out),export_format='GLB',export_yup=True,export_apply=True,export_animations=False,export_cameras=False,export_lights=False)
+if options.no_preview: raise SystemExit(0)
 # Offline, reproducible lighting preview.
 scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.samples=24;scene.cycles.use_denoising=True
 world=bpy.data.worlds.new('Studio environment');scene.world=world;world.use_nodes=True;nodes=world.node_tree.nodes;env=nodes.new('ShaderNodeTexEnvironment');env.image=bpy.data.images.load(str(root/'public/assets/library/studio-small-09.hdr'));world.node_tree.links.new(env.outputs['Color'],nodes.get('Background').inputs['Color']);nodes.get('Background').inputs['Strength'].default_value=.7
 bpy.ops.object.camera_add(location=(2.4,-7.5,1.65));cam=bpy.context.object;cam.rotation_euler=(Vector((0,0,0))-cam.location).to_track_quat('-Z','Y').to_euler();cam.data.lens=58;scene.camera=cam
-scene.render.resolution_x=700;scene.render.resolution_y=700;scene.render.resolution_percentage=100;scene.render.film_transparent=True;scene.render.image_settings.file_format='PNG';scene.render.image_settings.color_mode='RGBA';scene.render.filepath=str(root/'work/studio-clock-preview.png');bpy.ops.render.render(write_still=True)
+scene.render.resolution_x=700;scene.render.resolution_y=700;scene.render.resolution_percentage=100;scene.render.film_transparent=True;scene.render.image_settings.file_format='PNG';scene.render.image_settings.color_mode='RGBA';scene.render.filepath=str(root/f'work/{asset_name}-preview.png');bpy.ops.render.render(write_still=True)

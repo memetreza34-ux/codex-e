@@ -30,3 +30,7 @@ public/audio/*
 .agents/skills/heygen-translate/
 .agents/skills/higgsfield-generate/
 .agents/skills/higgsfield-faceless-video/
+
+# Lokale Python-Zwischendateien
+__pycache__/
+*.py[cod]

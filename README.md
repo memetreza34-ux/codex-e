@@ -4,10 +4,10 @@ Hier arbeitet Codex an Erklärfilmen. Der Ordner enthält Skills, Agenten-Rollen
 
 ## Inhalt
 
-- **31 Skills:** neun eigene Produktions-Skills, zwölf offizielle Remotion-Skills und zehn ergänzende Skills von Anthropic, HeyGen und Higgsfield.
+- **33 Skills:** elf eigene Produktions-Skills, zwölf offizielle Remotion-Skills und zehn ergänzende Skills von Anthropic, HeyGen und Higgsfield.
 - **Zehn Agenten-Rollen:** Recherche, Referenzanalyse, Storyboard, Gestaltung, Animation, Ton, Formatredaktion, Medienauswahl, Compositing und Qualitätsprüfung.
 - **Werkzeuge:** Remotion, React, TypeScript, Three.js, FFmpeg/FFprobe sowie lokale Render- und Prüfskripte.
-- **Wiederverwendbarer Code:** sieben Beispielanimationen, offene Schriften und synthetischer Demo-Ton. Darunter eine plastische Afrika-Karte, eine Reise mit Miniaturen und eine eigenständige Popcorn-Makroszene.
+- **Wiederverwendbarer Code:** acht Beispielanimationen, offene Schriften und synthetischer Demo-Ton. Darunter eine plastische Afrika-Karte, eine Reise mit Miniaturen und eine eigenständige Popcorn-Makroszene.
 - **Projektablage:** Briefings, Quellen, Storyboards und Abnahmen unter projects/.
 
 ## Verwendung
@@ -78,3 +78,9 @@ node scripts/render-chunks.mjs Schalttag audio/leap-day.wav
 ```
 
 Die Szene enthält eigene synthetische Klänge, keine Sprecherstimme. Der abschnittsweise Export nutzt einen Chrome-Tab und fügt den vollständigen Ton anschließend ohne Abschnittsversatz hinzu. Exporte bleiben lokal unter renders/.
+
+## Referenznähe verbessern
+
+Die [Referenzwerkstatt](docs/reference-workshop.md) ergänzt lokale Schnittanalyse, Bildstichproben und optionale Whisper-Wortzeiten. [Gemessene Beobachtungen](references/timswissen/measured-study.md) halten fest, was tatsächlich betrachtet wurde. `look-development` und `audio-timing` verbinden diese Ergebnisse mit eigenen Materialien und der eigentlichen Sprecherfassung.
+
+Alle Renderbefehle nutzen jetzt denselben Kern. Neue Exporte erhalten eindeutige Namen; bestehende Videos werden erhalten. Aktueller Host-/Accountstatus liegt nur unter work/provider-status.json, deklarative Anforderungen unter toolkit/providers.json.

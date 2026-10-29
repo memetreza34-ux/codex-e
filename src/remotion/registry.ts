@@ -1,3 +1,4 @@
+import { ClockStudy } from "./scenes/ClockStudy";
 import { LeapDay } from "./scenes/LeapDay";
 import { HybridAssets } from "./scenes/HybridAssets";
 import { PopcornLab } from "./scenes/PopcornLab";
@@ -7,6 +8,7 @@ import type { ComponentType } from "react";
 import { WebsiteFilm } from "./scenes/WebsiteFilm";
 import { DataFilm } from "./scenes/DataFilm";
 export const sceneComponents: Record<string, ComponentType> = {
+  UhrStilstudie: ClockStudy,
   Schalttag: LeapDay,
   HybridAssets: HybridAssets,
   PopcornLabor: PopcornLab,

@@ -19,3 +19,6 @@ Für zukünftige Projektassets jeweils Quelle, Urheber, Erlaubnis/Lizenz und eve
 - Eigenes Uhrmodell: scripts/blender/make-clock.py und public/assets/library/studio-clock.glb, prozedural erstellt, keine Fremdmodelle oder Fremdtexturen eingebettet. Blender selbst unterliegt seinen eigenen Lizenzbedingungen: https://www.blender.org/about/license/.
 
 - **Schalttag:** eigener prozeduraler Papierkalender und eigene synthetische Klänge. Bereits registriertes NASA-Apollo-17-Foto und eigenes Uhrmodell wiederverwendet. Fachquellen und Näherungen unter projects/leap-day/sources.md. Keine Originalmedien oder Stimme des Referenzkanals übernommen.
+
+- **Referenzwerkstatt:** yt-dlp und PySceneDetect aus den offiziellen Projekten, Versionen inklusive Abhängigkeiten in toolkit/reference-lock.txt; jeweilige Paketlizenzen gelten. OpenAI Whisper optional, lokal verwendet. Modellgewichte, fremde Analysevideos, Frames und Transkripte bleiben Git-ignore.
+- **Materialbild Kalender:** eigene Generierung mit nativem image_gen, Prompt und Zweck unter projects/style-match/generation.json. Kein Foto oder Frame des Referenzkanals. Eigene Uhrvariante aus demselben Blender-Quellskript.

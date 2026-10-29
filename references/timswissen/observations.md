@@ -23,3 +23,5 @@ Sichtungsnotizen vom 28. Oktober 2026. Die Auswahl umfasst konkrete visuelle Sti
 Die tatsächliche Herstellung mit Remotion, einer anderen Animationssoftware oder generativer Videotechnik ist nicht verifiziert. Eine KI-Kennzeichnung auf TikTok belegt keinen konkreten Produktionsprozess. Genaue Schnittfrequenzen und Animationskurven wurden nicht gemessen. Gesprochener Text, Klang, Musik und deren Synchronität wurden hier nicht gehörend geprüft. Diese Punkte bleiben offen, statt aus Standbildern abgeleitet zu werden.
 
 Die Aussagen über Nationalitäten werden nicht als Faktenquelle für neue Lernvideos übernommen. Neue Sachthemen werden separat belegt. Die Übertragung betrifft die gestalterische und erzählerische Methode.
+
+Vertiefung am 29. Oktober: [measured-study.md](measured-study.md) betrachtet 79 zeitmarkierte Stichproben des Spanier-Videos und trennt automatische Schnitt-/Wortdaten von visuellen Beobachtungen. Die Grenzen der alten Stichproben gelten weiterhin für die anderen Videos.

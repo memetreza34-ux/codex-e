@@ -1,36 +1,40 @@
-# Werkzeugsatz für vollständige Erklärfilme
+# Skills und Rollen
 
-## Tatsächlich vorhanden
+Die folgende Zuordnung verbindet konkrete Produktionsaufgaben mit den vorhandenen Arbeitsanleitungen. Installationsbefehle, Werkzeuge und Anbieteranforderungen stehen zentral in [tools.md](tools.md). workspace.config.json führt die festgelegten Quellen und konfigurierten Rollen.
 
-- Zwölf offizielle Remotion-Skills, auf dem im workspace.config.json genannten Commit. Der abgefragte aktuelle Hauptzweig entsprach am 28. Oktober 2026 diesem bereits installierten Commit.
-- Zehn installierte externe Skills: canvas-design von Anthropic sowie hyperframes, hyperframes-cli, hyperframes-registry und media-use von HeyGen; dazu heygen-video, heygen-avatar, heygen-translate sowie higgsfield-generate und higgsfield-faceless-video. Herkunft und feste Commits stehen unter extraSkillsSources in workspace.config.json. Die offiziellen Installer wurden mit den festen Commits verwendet.
-- Neun eigene Produktions-Skills: die vier ursprünglichen plus reference-breakdown, shortform-dramaturgy, object-choreography, hybrid-media und blender-props. Insgesamt 31 lokale Skills.
-- Zehn konfigurierte Rollen: sechs ursprüngliche plus reference_analyst, format_editor, asset_researcher und compositing_artist. Konfigurationen sind keine bereits laufenden zusätzlichen Agenten. Modell, Tools und Berechtigungen werden nicht erweitert.
-- Ausführbare Werkzeuge am Host geprüft: Node.js, Python, FFmpeg/FFprobe, yt-dlp, Agent Reach und Higgsfield CLI. Ein vorhandener CLI-Pfad beweist weder Accountanmeldung noch Guthaben oder getestete Generierung. Manim wurde nicht als installierte Laufzeit gefunden.
+| Aufgabe                 | Skill / Rolle                                             | Erwartetes Ergebnis                                                                      |
+| ----------------------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Referenz verstehen      | reference-breakdown / reference_analyst                   | Tatsächlich beobachtete Einstellungen mit Zeitmarken; Beobachtung und Vermutung getrennt |
+| Film entwickeln         | explainer-director, shortform-dramaturgy / story_designer | Durchgehendes Skript mit Frage, sichtbarer Erklärung und Auflösung                       |
+| Bildfolge planen        | visual-storyboard, object-choreography / art_director     | Passende Objekte, Zustandswechsel und Übergänge                                          |
+| Stilbilder entwickeln   | canvas-design und verfügbare Bildwerkzeuge / art_director | Eigene Entwürfe für Komposition und Bildsprache                                          |
+| Medien auswählen        | hybrid-media / asset_researcher                           | Visuell geprüfte Foto-, Illustrations- oder Modellwahl mit belegter Herkunft             |
+| Objekte bauen           | blender-props / motion_designer                           | Editierbares Modell mit Materialien und benannten beweglichen Teilen                     |
+| Medien zusammenführen   | hybrid-media / compositing_artist                         | Konsistente Perspektive, Licht, Schatten und Freistellkanten                             |
+| Animieren               | motion-design und Remotion-Skills / motion_designer       | Framebasierte Bewegung und reproduzierbarer Schnitt                                      |
+| Ton entwickeln          | audio_director und tatsächlich verfügbare Medienwerkzeuge | Zum Bild passender Ton und dokumentierte Mischung                                        |
+| Filmzusammenhang prüfen | format_editor                                             | Konkrete redaktionelle Änderungen am gesamten Ablauf                                     |
+| Abnehmen                | render-qa / quality_reviewer                              | Tatsächlicher Export, Sichtprüfung und gegebenenfalls gehörte Tonprüfung                 |
 
-## Zuständigkeit
+## Ergänzende Skill-Bundles
 
-| Schritt             | Skill / Rolle                                          | Konkretes Ergebnis                                                    |
-| ------------------- | ------------------------------------------------------ | --------------------------------------------------------------------- |
-| Machart verstehen   | reference-breakdown / reference_analyst                | Beobachtungen mit Zeitmarken, abgeleiteter Formatleitfaden            |
-| Film entwickeln     | shortform-dramaturgy / story_designer                  | vollständiges Skript und Auflösung                                    |
-| Bilder planen       | visual-storyboard, object-choreography / art_director  | Objektliste, Zustandswechsel und Übergänge                            |
-| Stilbilder          | canvas-design, vorhandene Bildwerkzeuge                | eigene statische Entwürfe für Bildkomposition                         |
-| Animieren           | Remotion-Skills, motion-design / motion_designer       | editierbare Szenen mit reproduzierbarem Timing                        |
-| Ton                 | audio_director, tatsächlich verfügbare Medienwerkzeuge | echte Aufnahmen, Effektplan und geprüfte Mischung                     |
-| Zusammenhang prüfen | format_editor                                          | konkrete redaktionelle Änderungen am ganzen Film                      |
-| Abnehmen            | render-qa / quality_reviewer                           | tatsächliche Vorschau, Sichtprüfung und dokumentierte Einschränkungen |
+Die importierten Anleitungen ergänzen den vorhandenen Produktionsweg:
 
-## Grenzen und Installation
+- Die offiziellen Remotion-Skills behandeln Umsetzung, Medien, Vorschau und Export im vorhandenen Stack.
+- Anthropic canvas-design unterstützt eigene statische Bildkompositionen.
+- HyperFrames und media-use behandeln einen ergänzenden HTML-Video-Ansatz und dessen Medienarbeit.
+- Die HeyGen-Skills behandeln optionale Präsenter, Avatare und Übersetzungen.
+- Die Higgsfield-Skills behandeln zusätzliche Mediengenerierung und Faceless-Verfahren.
 
-Remotion bleibt der vorhandene getestete Renderpfad. Die HyperFrames-Skills sind zusätzliches Wissen; eine HyperFrames-Laufzeit, ein Cloudkonto oder ein Bezahlplan wurden nicht eingerichtet oder als funktionsfähig ausgegeben. Es wurde keine eigene Webseite oder Bedienoberfläche gebaut.
+Die Toolwahl folgt der konkreten Bildaufgabe. Ein Präsenter ersetzt keine Objektanimation; ein installierter Skill belegt weder eine Laufzeitinstallation noch eine Accountverbindung. Quellen, feste Commits und Importumfang stehen ausschließlich in workspace.config.json; die jeweiligen Upstream-Lizenzen gelten.
 
-npm run skills:sync installiert fehlende externe Skills mit festen Commits und erhält bestehende Ordner. Neue lokale Skills werden in einem neuen Codex-Turn mit diesem Arbeitsordner entdeckt. Sie lassen sich zuvor gezielt anhand ihrer SKILL.md verwenden. Fremde Skill-Bundles bleiben Git-ignore; es gelten die jeweiligen Lizenzen der Ursprungsrepositories.
+## Einsatz der Rollen
 
-Agent Reach meldet Version 1.6.0 als verfügbares Update gegenüber 1.5.0. Es wurde kein globales Update ausgeführt. Offizielle Anleitung: https://raw.githubusercontent.com/Panniantong/agent-reach/main/docs/update.md .
+Dateien unter .codex/agents beschreiben spezialisierte Rollen. Sie sind keine automatisch laufenden Prozesse und erweitern keine Modell-, Tool- oder Accountberechtigungen. Delegation folgt dem autorisierten Auftrag und den aktiven Sitzungsregeln. Klare Zuständigkeiten und getrennte Dateien verhindern gegenseitiges Überschreiben.
 
-## Medienauswahl und Compositing
+Eigene Abläufe liegen unter .agents/skills. Neue lokale Skills werden bei entsprechender Workspace-Erkennung in einem neuen Codex-Turn entdeckt; sie können vorher anhand ihrer SKILL.md gezielt verwendet werden. Fremde Bundles bleiben Git-ignore und lassen sich über den dokumentierten Sync wiederherstellen.
 
-Die neuen Skills hybrid-media und blender-props verbinden den Formatleitfaden mit echten Fotos, Illustrationen und beweglichen Modellen. asset_researcher entscheidet über Qualität und Herkunft; compositing_artist stimmt Licht und Bildkomposition ab. Die Rollen sind konfiguriert, in diesem Auftrag aber nicht als zusätzliche Agenten gestartet worden.
+## Ergänzende Qualitätsarbeit
 
-Der [praktische Ablauf](hybrid-media.md) und das [Quellenregister](../media/CREDITS.md) enthalten die eingesetzten Medien. Blender baut ein eigenes animierbares GLB. HeyGen ist lokal installiert; HeyGen und Higgsfield melden Anmeldebedarf. Zusätzliche Skills wurden installiert, externe Generierungen nicht ausgeführt.
+- look-development / art_director, compositing_artist: eigene Stilbilder und kurzer Bewegungstest anhand der Referenz.
+- audio-timing / audio_director: eigene Sprecherfassung mit sichtbaren Aktionen verbinden.

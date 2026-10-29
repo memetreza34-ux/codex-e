@@ -1,0 +1,7 @@
+click==8.5.0
+numpy==2.5.4
+opencv-python-headless==5.0.0.93
+platformdirs==4.14.0
+scenedetect-headless==0.7.2
+tqdm==4.70.1
+yt-dlp==2026.10.26

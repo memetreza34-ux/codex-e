@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "reference": {
+    "id": "timswissen-spanier",
+    "url": "https://www.tiktok.com/@timswissen/video/7700173076608158998",
+    "sha256": "b02b8ae5b8d90cd28d0b59a9424b1fd715a43153670aef3e0cd1b63fb8bbb416",
+    "width": 576,
+    "height": 1024,
+    "fps": 30,
+    "decodedFrames": 2225,
+    "duration": 74.16666666666667
+  },
+  "review": {
+    "date": "2026-10-29",
+    "coverage": "79 zeitmarkierte Stichproben in sieben Kontaktbögen über die ganze Länge plus zwei Einzelbilder betrachtet; keine vollständige Echtzeit- oder gehörte Sichtung",
+    "audio": "Whisper tiny automatisch; nicht vollständig korrigiert oder gehörend abgenommen",
+    "originalProductionSoftware": "unknown"
+  },
+  "automaticCutCandidates": [
+    {
+      "frame": 224,
+      "seconds": 7.466666666666667
+    },
+    {
+      "frame": 256,
+      "seconds": 8.533333333333333
+    }
+  ],
+  "cutCaveat": "Gleicher Hintergrund: ContentDetector erfasst viele semantische Objektwechsel nicht.",
+  "manualObjectMeasurements": [
+    {
+      "frame": 300,
+      "seconds": 10,
+      "object": "Uhr",
+      "bboxXYXY": [122, 246, 467, 590],
+      "widthFraction": 0.5989583333333334,
+      "center": [0.5112847222222222, 0.408203125],
+      "method": "manuelle Pixelabschätzung am betrachteten Frame; keine automatische Segmentierung"
+    },
+    {
+      "frame": 1050,
+      "seconds": 35,
+      "object": "Uhr",
+      "bboxXYXY": [142, 344, 448, 651],
+      "widthFraction": 0.53125,
+      "center": [0.5121527777777778, 0.48583984375],
+      "method": "manuelle Pixelabschätzung am betrachteten Frame"
+    }
+  ],
+  "typography": {
+    "observed": "Kräftige helle Sans, grüne kursive Serif-Akzente, kurze Rollen- und Zeitpillen; wechselnde Satzteile statt Dauerüberschrift",
+    "exactFont": "unknown",
+    "ownImplementation": [
+      "SceneBold",
+      "SceneSans",
+      "SceneSerif with synthetic italic"
+    ]
+  },
+  "speechEstimate": {
+    "engine": "openai-whisper",
+    "version": "20250625",
+    "model": "tiny",
+    "wordCount": 221,
+    "lastWordSeconds": 73.66,
+    "wordsPerSecondApprox": 3,
+    "review": "automatic-unreviewed; Erkennungsfehler vorhanden"
+  },
+  "ownStudy": {
+    "compositionId": "UhrStilstudie",
+    "scope": "9 Sekunden stumme eigene Bewegungsprobe, keine vollständige 1:1-Rekonstruktion",
+    "materialBoard": "public/assets/art-direction/calendar-material-v1.png",
+    "materialBoardPurpose": "Eigene KI-Materialvorlage; deren Komposition ist keine gemessene Übereinstimmung mit dem Kanal"
+  }
+}

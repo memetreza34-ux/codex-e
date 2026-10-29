@@ -1,55 +1,34 @@
-# Medienwerkstatt für kurze Wissensfilme
+# Fotos, Illustrationen und Modelle verbinden
 
-Ziel ist die im Referenzleitfaden beobachtete Machart: ruhige dunkle Bühne, große erkennbare Objekte, kurze Beschriftungen und sichtbare Veränderungen. Fotos, Illustrationen und Modelle werden passend zur Aussage kombiniert. Ein Avatar oder ein weiterer Dienst löst die Gestaltung nicht automatisch.
+Die Medienwahl folgt der Aussage im Skript und dem [Referenzleitfaden](../references/timswissen/format-guide.md). Fotos zeigen reale Erscheinung, Illustrationen vereinfachen und Modelle ermöglichen Perspektivwechsel oder bewegliche Teile. Entscheidend sind passende Objekte und sichtbare Veränderungen.
 
-## Getesteter lokaler Weg
+## Praktischer Ablauf
 
-1. Briefing und vollständige Bildfolge mit reference-breakdown, shortform-dramaturgy und object-choreography entwickeln.
-2. Mit hybrid-media / asset_researcher geeignete Medien auswählen und tatsächlich ansehen. Unruhige Foto-Kandidaten wurden hier aussortiert; Entscheidungen stehen in media/rejected-candidates.json.
-3. Herkunft erfassen. `npm run media:import -- media/bootstrap.json` lädt die drei externen Startassets. Das eigene GLB entsteht mit `blender --background --python scripts/blender/make-clock.py`. Das generierte Modell ist bereits im Register und Repository enthalten.
-4. `npm run media:verify` und `npm run media:credits` ausführen. Das Register kontrolliert Herkunft, Prüfsummen, Bild-Metadaten und GLB-Struktur. Vorhandene lokal veränderte Dateien werden beim Import erhalten; der Import bricht ab.
-5. Mit MediaHero, ModelAsset und AssetEnvironment einbauen. Alle Bilder, Modelle und Lichtdaten werden lokal geladen. Die Wartebedingungen für GLB und HDRI müssen im äußeren React-Baustein vor ThreeCanvas erzeugt werden; Clock in HybridAssets zeigt das Muster. Ein erst innerhalb der verzögert gemounteten Canvas erzeugter delayRender kann für den ersten Frame zu spät kommen. onReady beendet die äußere Wartebedingung nach Laden und Zeichnen. Benannte Modellknoten lassen sich absolut pro Frame drehen. Für diesen Weg ist kein Cloudkonto erforderlich.
-6. Repräsentative Frames und Export ansehen. Zeiger, Material, Freistellkanten, Lesbarkeit und Schnittfolge prüfen. `npm run media:demo` rendert die geprüfte Studie in drei 90-Frame-Abschnitten. `scripts/media/check-frame.mjs` erkennt ein fehlendes Uhrmotiv im Prüfbild und läuft auch in CI. HybridAssets zeigt nur die Medienintegration in neun Sekunden und enthält keinen Ton.
+1. Briefing, Bildfolge und Art Direction klären. Die Skills reference-breakdown, shortform-dramaturgy und object-choreography unterstützen die Planung; [toolkit.md](toolkit.md) ordnet Rollen und Ergebnisse zu.
+2. Kandidaten tatsächlich ansehen. Hauptmotiv, Hintergrund, Auflösung, Material, Freistellkanten und störende Schrift prüfen. Ungeeignete Kandidaten nicht als Produktionsassets übernehmen; media/rejected-candidates.json hält bisherige Entscheidungen fest.
+3. Quelle, Urheber, Medientyp, Rechte und Änderungen erfassen. Echte Fotografie und KI-Bilder getrennt benennen. Public Domain braucht einen konkreten Nachweis; es ist keine automatische Gleichsetzung mit CC0. Neue KI-Bilder als ai-generated mit tatsächlichem Werkzeug und Prompt registrieren.
+4. Dateien lokal unter public/assets ablegen und mit scripts/media/library.mjs registrieren. Der [Startimport](../media/bootstrap.json) enthält drei externe Medien; der [Medienbestand](../media/manifest.json) führt auch das eigene Uhrmodell. Vorhandene lokal veränderte Dateien werden beim Import erhalten; der Import bricht ab.
+5. Prüfsummen und Formate kontrollieren, Credits erzeugen und die Medien in Remotion einbauen. Alle dafür vorgesehenen Befehle stehen in [tools.md](tools.md).
+6. Perspektive, Licht, Schatten, Größe und Farben zusammen abstimmen. Repräsentative Frames und den tatsächlichen Export auf Kollisionen, Materialfehler und lesbare Bewegung prüfen. Technische QA ersetzt keine gestalterische Abnahme.
 
-## Enthaltene Medien
+## Vorhandene Integrationsbausteine
 
-| Medium                   | Zweck                                    | Herkunft / Rechte                        |
-| ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| Echtes Apollo-17-Foto    | Reale Oberfläche und Bilddetails         | NASA, Public Domain mit Einzelbegründung |
-| Freigestellte Uhr        | Lesbare Illustration mit Alpha           | Vijay Verma / 3dicons, CC0               |
-| Studio Small 09          | Reflexionen und Modellbeleuchtung        | Sergej Majboroda / Poly Haven, CC0       |
-| Eigene Studiouhr als GLB | Perspektivwechsel und animierbare Zeiger | Eigene Blender-Quelle, project-owned     |
+- **MediaHero** lädt lokale Fotos oder Illustrationen aus public/ und unterstützt framebasierte Bildbewegung.
+- **ModelAsset** lädt lokale GLB-Dateien. Benannte Knoten lassen sich absolut pro Frame drehen; keine aufeinander aufbauenden Echtzeit-Inkremente verwenden.
+- **AssetEnvironment** lädt eine lokale HDRI für Modellreflexionen und Beleuchtung.
 
-Das NASA-Foto ist keine KI-Grafik. Die Uhrillustration ist kein Foto. Neue KI-Bilder werden getrennt als ai-generated mit Werkzeug und Prompt registriert. Vollständige Quellen und Dateihashes: [Register](../media/manifest.json), [Credits](../media/CREDITS.md). Für weitergehende Nutzung gelten die dokumentierten Rechte der jeweiligen Quelle.
+Die äußeren Wartebedingungen für GLB und HDRI müssen vor dem Mount von ThreeCanvas entstehen. Clock in HybridAssets und Stage in LeapDay zeigen das Muster. Ein erst innerhalb der verzögert gemounteten Canvas erzeugter delayRender kann für den ersten Frame zu spät kommen. onReady beendet die äußere Wartebedingung nach Laden und Zeichnen.
 
-## Optionale Anbieter
+Das eigene Uhrmodell entsteht aus scripts/blender/make-clock.py und enthält benannte Eltern für Stunden-, Minuten- und Sekundenzeiger. Die Blender-Achsen werden beim GLB-Export nach Y-up konvertiert. Blender-Vorschaubild und tatsächlichen Three.js-Render getrennt prüfen, weil Material und Licht abweichen können.
 
-| Werkzeug                     | Stand dieser Erweiterung                              | Sinnvoller Einsatz                                          |
-| ---------------------------- | ----------------------------------------------------- | ----------------------------------------------------------- |
-| Native Codex-Bildgenerierung | Hostwerkzeug verfügbar; hier keine neue Generierung   | Neue Bilder, Cutouts, Hintergründe und gezielte Bearbeitung |
-| Blender 5.2.2 LTS            | Eigenes Modell erstellt, GLB und Vorschaubild geprüft | Spezifische Objekte, Materialien, bewegliche Teile          |
-| HeyGen CLI v0.11.0           | Lokal installiert; Anmeldung erforderlich             | Optionale Präsenter, Avatare und Übersetzungen              |
-| HeyGen-Plugin                | Anschluss vorgeschlagen; Verbindung unbestätigt       | Nutzung über verfügbare verbundene Hostwerkzeuge            |
-| Higgsfield CLI 0.1.40        | Vorhanden; Anmeldung erforderlich                     | Zusätzliche generierte Clips, Bilder und Faceless-Verfahren |
-| HyperFrames                  | Skills installiert; Laufzeit nicht eingerichtet       | Ergänzender Ansatz für passende spätere Projekte            |
+## Beispiele und Quellen
 
-Keine bezahlten Jobs gestartet. Keine Schlüssel oder Login-Sitzungen im Repository. Status: toolkit/provider-status.json. Ein erfolgreicher Accountstatus wäre noch kein getesteter Generierungsjob.
+HybridAssets ist eine neunsekündige technische Integrationsstudie aus Foto, freigestellter Illustration und Modell. Sie enthält keinen Ton und ist kein vollständiger Lernfilm. Schalttag verwendet die Bausteine in einer zusammenhängenden 30-Sekunden-Erklärung mit eigenem synthetischen Ton. Projektbezogene Skripte, Bildfolgen und Prüfungen liegen unter projects/.
 
-```sh
-npm run media:setup
-npm run media:doctor -- --accounts
-npm run heygen -- --help
-npm run heygen -- auth login --oauth
-```
+Das registrierte NASA-Apollo-17-Bild ist ein Foto; die freigestellte Uhr von Vijay Verma / 3dicons ist eine Illustration. Die HDRI stammt von Poly Haven; die animierbare Studiouhr ist ein eigenes Modell. Vollständige Einzelquellen, Rechte und Änderungen stehen in [media/CREDITS.md](../media/CREDITS.md) und [media/manifest.json](../media/manifest.json).
 
-Der letzte Befehl ist eine optionale interaktive Anmeldung durch den Nutzer, kein Schritt von media:setup. Higgsfield meldet den erforderlichen Login über seine vorhandene CLI. Anbieter erst einsetzen, wenn Auftrag, Anmeldung und anfallende Kosten geklärt sind. Remotion bleibt der primäre Renderpfad.
+## Generierte Medien
 
-## Quellen der Werkzeuge
+Für neue Bilder oder Bildbearbeitungen ein tatsächlich verfügbares passendes Werkzeug verwenden. Ergebnisse projektlokal speichern und Alpha erhalten. Zusätzliche Anbieter vor dem konkreten Auftrag auf Einrichtung, Anmeldung und Kosten prüfen. Installierte Anleitungen belegen keine erfolgreiche Generierung.
 
-- [HeyGen CLI](https://developers.heygen.com/cli) und [offizielle Skills](https://developers.heygen.com/skills/overview)
-- [Higgsfield Skills](https://github.com/higgsfield-ai/skills)
-- [Poly Haven Lizenz](https://polyhaven.com/license), [öffentliche API](https://github.com/Poly-Haven/Public-API)
-- [NASA-Foto mit Rechtenachweis](https://commons.wikimedia.org/wiki/File:The_Earth_seen_from_Apollo_17.jpg)
-- [Uhrillustration mit Rechtenachweis](https://commons.wikimedia.org/wiki/File:Clock-front-color.png)
-
-Importierte Skills werden auf feste Commits gebunden, lokal installiert und nicht erneut mitveröffentlicht. Eigene Skills und Rollen bleiben im Repository editierbar. Neue Skills werden in einem neuen Codex-Turn mit diesem Ordner entdeckt.
+Anbieteranforderungen und Statusprüfung sind zentral in [tools.md](tools.md) und [toolkit/providers.json](../toolkit/providers.json) dokumentiert. Ein aktueller CLI-Bericht gehört unter ignoriertes work/provider-status.json. Hostwerkzeuge und Plugin-Verbindungen müssen im aktiven Auftrag separat geprüft werden.

@@ -1,0 +1,3 @@
+# Lokale Referenzanalyse. Python >=3.12 (NumPy-Lock); keine Cloudkonten.
+yt-dlp==2026.10.26
+scenedetect-headless==0.7.2

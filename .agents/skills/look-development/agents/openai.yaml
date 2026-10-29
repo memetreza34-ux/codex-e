@@ -1,0 +1,4 @@
+interface:
+  display_name: "Material und Bildsprache abstimmen"
+  short_description: "Materialien, Licht und Bildaufbau an Stilbildern prüfen"
+  default_prompt: "Nutze $look-development für die Annäherung an dieses Referenzformat."

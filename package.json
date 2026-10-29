@@ -24,7 +24,11 @@
     "media:setup": "node scripts/media/install-tools.mjs",
     "media:doctor": "node scripts/media/doctor.mjs",
     "heygen": "node scripts/media/heygen.mjs",
-    "media:demo": "node scripts/media/render-demo.mjs"
+    "media:demo": "node scripts/media/render-demo.mjs",
+    "reference:setup": "node scripts/reference/setup.mjs",
+    "reference:fetch": "node scripts/reference/run.mjs fetch",
+    "reference:analyze": "node scripts/reference/run.mjs analyze",
+    "reference:transcribe": "node scripts/reference/transcribe.mjs"
   },
   "dependencies": {
     "@react-three/fiber": "9.6.1",

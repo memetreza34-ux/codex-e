@@ -12,6 +12,7 @@ Mit Arman kurz und klar auf Deutsch arbeiten. Dieses Repository ist der Arbeitso
 ## Produktion
 
 - Erst die Frage und die sichtbare Erklärung verstehen. Bei klarer Aufgabe mit vernünftigen Annahmen weiterarbeiten.
+- Bei Referenzformaten nach der tatsächlichen Bildanalyse $look-development und $audio-timing verwenden. Eigene Stilbilder und kurze Bewegungsprobe intern beurteilen, bevor ein langer Film entsteht. Das verlangt keine zusätzliche Nutzerfreigabe.
 - Für neue Filme $explainer-director, für Bildfolgen $visual-storyboard, für Gestaltung $motion-design, für die Abnahme $render-qa verwenden. Offizielle Remotion-Skills installiert npm run skills:sync.
 - Bewegung aus useCurrentFrame() ableiten; keine Echtzeit-Animationen oder ungesäten Zufallszahlen im Film.
 - Eine Ursache oder Veränderung sichtbar machen. Diagramme, eigene Illustrationen und 3D nach dem Inhalt wählen.

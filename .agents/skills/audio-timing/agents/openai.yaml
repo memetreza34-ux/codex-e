@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sprache und Bewegung verbinden"
+  short_description: "Wortzeiten und sichtbare Aktionen im Erklärvideo abstimmen"
+  default_prompt: "Nutze $audio-timing für Sprecherfassung, Wortzeiten und Bildrhythmus."

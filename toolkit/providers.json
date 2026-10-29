@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Deklarative Einrichtungsanforderungen. Diese Datei behauptet keine aktuelle Installation, Anmeldung oder Host-Verbindung.",
+  "localStatusReport": "work/provider-status.json",
+  "providers": [
+    {
+      "id": "heygen",
+      "purpose": "Optionale Präsenter, Avatare und Übersetzungen",
+      "interfaces": ["repo-local-cli", "optional-host-plugin"],
+      "setupCommand": "npm run media:setup",
+      "toolLock": "toolkit/media-tools.lock.json",
+      "requiresProviderAccount": true,
+      "accountStatusCommand": ["auth", "status"],
+      "loginCommand": "npm run heygen -- auth login --oauth",
+      "billableJobsRequireAuthorizedScope": true,
+      "documentation": "https://developers.heygen.com/cli"
+    },
+    {
+      "id": "higgsfield",
+      "purpose": "Optionale generierte Clips, Bilder und weitere Medien",
+      "interfaces": ["external-cli"],
+      "installation": "CLI separat am Host einrichten; dieses Repository installiert sie nicht global.",
+      "requiresProviderAccount": true,
+      "accountStatusCommand": ["account", "status", "--json"],
+      "billableJobsRequireAuthorizedScope": true,
+      "documentation": "https://github.com/higgsfield-ai/skills"
+    },
+    {
+      "id": "native-image-generation",
+      "purpose": "Neue Bilder, Freistellungen und gezielte Bildbearbeitung",
+      "interfaces": ["optional-host-tool"],
+      "availabilityCheck": "Im aktiven Codex-Auftrag verfügbare Werkzeuge prüfen. media:doctor kann dies nicht erkennen.",
+      "repositoryAccountSetup": "none"
+    },
+    {
+      "id": "hyperframes",
+      "purpose": "Ergänzender HTML-Video-Ansatz für ausdrücklich passende Projekte",
+      "interfaces": ["optional-runtime"],
+      "installation": "skills:sync installiert Wissen, keine HyperFrames-Laufzeit und kein Cloudkonto.",
+      "availabilityCheck": "Laufzeit vor einem konkreten Einsatz separat prüfen."
+    }
+  ]
+}
