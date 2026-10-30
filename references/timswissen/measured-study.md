@@ -44,3 +44,7 @@ Lokales Whisper tiny schätzt 221 Wörter bis ungefähr 73,66 Sekunden, rund dre
 - UhrStilstudie: neun Sekunden stumme eigene Bewegungsprobe; kleineres Hauptobjekt, zeitlicher Zustandswechsel, grüne Betonung und wechselnde Textrollen. Keine vollständige 1:1-Abnahme.
 - Eigenes KI-Kalenderbild als Materialvorlage. Es zeigt bessere Papier-/Stoff-/Metall-Differenzierung, ist aber kein Referenzframe und seine Objektgröße keine gemessene Übereinstimmung.
 - look-development und audio-timing verbinden Stilbilder und tatsächliche Sprecherfassung mit künftigen Filmen. Analysetools ersetzen die Betrachtung nicht.
+
+## Weitere Vertiefung
+
+[Detailanalyse vom30.Oktober](deep-analysis-2026-10-30.md) untersucht fünf Übergänge mit weiteren66Bildstichproben und dokumentiert Rollen-Semantik, Ebenenwechsel, Pixelproben und Grenzen der bisherigen eigenen Stilprobe.

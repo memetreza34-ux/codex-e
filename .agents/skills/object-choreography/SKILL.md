@@ -12,3 +12,5 @@ Für das hier untersuchte Wissensformat helfen wechselnde große Hauptobjekte au
 Gib jedem Objekt eine lesbare Aktion und ein erkennbares Ergebnis. Plane Einstieg, Veränderung, kurze Betrachtung und Abgang. Wähle Tempo nach Lesbarkeit und tatsächlichem Ton; übernimm keine starren Sekundenregeln aus einzelnen Beispielen. Farbe zeigt relevante Zustände, Text benennt das Nötige. Modelle und illustrative Größen als solche kennzeichnen.
 
 Prüfe repräsentative Übergangsframes und den tatsächlichen Film. Beurteile Inhalt und Schnittfolge neben den einzelnen schönen Bildern.
+
+Bei erzählten Referenzformaten Teilnehmeridentität von Zeit-/Ereignisbadges trennen. Personenpillen bleiben über Objekt- und Medienwechsel verständlich. Bei Übergängen Hauptobjekt, Teilnehmeranker, Kontext und Text separat führen. Die Detailanalyse unter references/timswissen/deep-analysis-2026-10-30.md zeigt konkrete betrachtete Überlappungen.

@@ -14,3 +14,5 @@ Nutze src/remotion/components/ExplainerStage.tsx und styles/explainer.ts als eig
 Nutze geladene lokale Schriften auch in Canvas-Texturen. Keine ungebundenen Systemschriften als verdeckten Ersatz verwenden. Prüfe die reale Rendering-Laufzeit einschließlich Font- und Modell-Laden. In alten Szenen bestehende Entscheidungen nicht ungefragt global ändern.
 
 Dokumentiere den betrachteten Umfang und konkrete Abweichungen. Ohne geprüfte Bewegung und gehörten Ton keine vollständige Format- oder 1:1-Abnahme behaupten. projects/style-match zeigt Materialentwurf, eigene Bewegungsprobe und die verbleibenden Grenzen.
+
+Bei Messungen an komprimierten Videoframes sind Pixelwerte Ergebnis von Licht, Farbraum und Kompression, keine direkten Materialwerte. Getrennte Form-, Material- und Kompositionsvergleiche führen. Füllung, Kontur, Lichtschein und Schatten separat abstimmen; echten Kursivschnitt prüfen, wenn die Referenzform durch künstliche Schrägstellung nicht getroffen wird.

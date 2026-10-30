@@ -70,5 +70,60 @@
     "scope": "9 Sekunden stumme eigene Bewegungsprobe, keine vollständige 1:1-Rekonstruktion",
     "materialBoard": "public/assets/art-direction/calendar-material-v1.png",
     "materialBoardPurpose": "Eigene KI-Materialvorlage; deren Komposition ist keine gemessene Übereinstimmung mit dem Kanal"
+  },
+  "deepReview": {
+    "date": "2026-10-30",
+    "report": "references/timswissen/deep-analysis-2026-10-30.md",
+    "additionalSampleCount": 66,
+    "windows": [
+      {
+        "frames": [132, 162],
+        "step": 3
+      },
+      {
+        "frames": [324, 366],
+        "step": 3
+      },
+      {
+        "frames": [1044, 1119],
+        "step": 5
+      },
+      {
+        "frames": [1590, 1656],
+        "step": 6
+      },
+      {
+        "frames": [2190, 2223],
+        "step": 3
+      }
+    ],
+    "coverage": "Fünf ausgewählte Übergänge mit ungefähr100–200ms Stichprobenabstand betrachtet. Keine exakten Originalkurven bestimmt.",
+    "pixelSamples": {
+      "frame": 300,
+      "background": {
+        "rgb": [32, 35, 32],
+        "hex": "#202320",
+        "rect": [20, 30, 75, 90]
+      },
+      "dial": {
+        "rgb": [232, 229, 217],
+        "hex": "#e8e5d9",
+        "rect": [300, 300, 30, 35]
+      },
+      "accent": {
+        "rgb": [190, 255, 80],
+        "hex": "#beff50",
+        "rect": [270, 620, 25, 12]
+      },
+      "caveat": "Decodierte Videopixel; keine Material-Albedos oder ausgelesenen Designtokens."
+    },
+    "unverified": [
+      "Originalassets",
+      "exakte Schrift",
+      "Originalsoftware",
+      "Original-Animationskurven",
+      "gehörte Stimme und Musik"
+    ],
+    "rejectedMeasurement": "Helligkeits-Tracker im Überlappungsfenster fragmentierte die Objekte; keine Kurven daraus abgeleitet."
   }
 }
