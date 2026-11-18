@@ -1,6 +1,6 @@
 # Prüfung des Arbeitsordners
 
-Die eigene Weboberfläche, ihr Server und ihre Abhängigkeiten wurden auf Armans Klarstellung entfernt. Erhalten sind die Produktionswerkzeuge, Skills, Agenten-Rollen, Projektablagen und Video-Beispiele.
+Diese Seite dokumentiert frühere Prüfungen des Arbeitsordners.
 
 Erfolgreich geprüft: npm run check, die beiden verbleibenden Tests, npm run doctor und ein neu gerenderter Testframe über die verbleibende Render-Pipeline. Die GitHub-CI prüft eine frische Installation, die Projektkonfiguration, Tests und einen gerenderten Frame unter Linux.
 
@@ -16,7 +16,7 @@ Die eigenständige fünfte Animation PopcornLabor wurde als 24-Sekunden-Makrosze
 
 ## Hybrid-Medienerweiterung, 28. Oktober 2026
 
-- 31 lokale Skills: zwölf Remotion, zehn ergänzende importierte und neun eigene. Zehn Rollen konfiguriert, keine zusätzlichen Agenten gestartet. Die beiden neuen eigenen Skills bestehen quick_validate; skills:sync erhält alle vorhandenen Ordner.
+- 31 lokale Skills: zwölf Remotion, zehn ergänzende importierte und neun eigene. Zehn Rollen konfiguriert, keine zusätzlichen Agenten gestartet. Die beiden neuen eigenen Skills bestehen quick_validate; Der damalige Sync erhielt vorhandene Ordner.
 - HeyGen CLI v0.11.0 repo-lokal mit festgelegtem SHA-256 installiert und Versionsaufruf geprüft. HeyGen und Higgsfield melden Anmeldebedarf; keine externe Generierung durchgeführt. Der HeyGen-Pluginanschluss ist unbestätigt. Dies war ein historischer Sitzungsstand; neue lokale Statusberichte stehen unter work/provider-status.json. Deklarative Anforderungen: toolkit/providers.json.
 - Blender 5.2.2 LTS erzeugte die eigene Uhr mit drei benannten Zeiger-Eltern. GLB-Struktur: 78 Knoten, 75 Meshes, sieben Materialien. Blender-Prüfbild und tatsächlicher Remotion-Uhrframe angesehen.
 - Vier registrierte Medien bestehen die Prüfsummen- und Formatprüfung. Die freigestellte PNG besitzt 803.556 vollständig transparente Pixel von 1.638.400. Zwei ungeeignete Foto-Kandidaten wurden aus der Produktionsbibliothek entfernt und nur ihre Ablehnungsgründe dokumentiert.

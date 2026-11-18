@@ -31,13 +31,6 @@
       "interfaces": ["optional-host-tool"],
       "availabilityCheck": "Im aktiven Codex-Auftrag verfügbare Werkzeuge prüfen. media:doctor kann dies nicht erkennen.",
       "repositoryAccountSetup": "none"
-    },
-    {
-      "id": "hyperframes",
-      "purpose": "Ergänzender HTML-Video-Ansatz für ausdrücklich passende Projekte",
-      "interfaces": ["optional-runtime"],
-      "installation": "skills:sync installiert Wissen, keine HyperFrames-Laufzeit und kein Cloudkonto.",
-      "availabilityCheck": "Laufzeit vor einem konkreten Einsatz separat prüfen."
     }
   ]
 }

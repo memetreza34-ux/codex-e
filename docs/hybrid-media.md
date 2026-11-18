@@ -4,7 +4,7 @@ Die Medienwahl folgt der Aussage im Skript und dem [Referenzleitfaden](../refere
 
 ## Praktischer Ablauf
 
-1. Briefing, Bildfolge und Art Direction klären. Die Skills reference-breakdown, shortform-dramaturgy und object-choreography unterstützen die Planung; [toolkit.md](toolkit.md) ordnet Rollen und Ergebnisse zu.
+1. Briefing, Bildfolge und Art Direction klären.
 2. Kandidaten tatsächlich ansehen. Hauptmotiv, Hintergrund, Auflösung, Material, Freistellkanten und störende Schrift prüfen. Ungeeignete Kandidaten nicht als Produktionsassets übernehmen; media/rejected-candidates.json hält bisherige Entscheidungen fest.
 3. Quelle, Urheber, Medientyp, Rechte und Änderungen erfassen. Echte Fotografie und KI-Bilder getrennt benennen. Public Domain braucht einen konkreten Nachweis; es ist keine automatische Gleichsetzung mit CC0. Neue KI-Bilder als ai-generated mit tatsächlichem Werkzeug und Prompt registrieren.
 4. Dateien lokal unter public/assets ablegen und mit scripts/media/library.mjs registrieren. Der [Startimport](../media/bootstrap.json) enthält drei externe Medien; der [Medienbestand](../media/manifest.json) führt auch das eigene Uhrmodell. Vorhandene lokal veränderte Dateien werden beim Import erhalten; der Import bricht ab.

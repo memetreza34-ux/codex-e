@@ -1,6 +1,6 @@
 # Werkzeuge und Befehle
 
-Remotion ist der primäre Produktionsweg. Die installierten Pakete und festen Versionen stehen in package.json und package-lock.json, Skill-Quellen in workspace.config.json. Dieser Arbeitsordner enthält keine zusätzliche Studio-Webseite.
+Remotion ist der primäre Produktionsweg. Die installierten Pakete und festen Versionen stehen in package.json und package-lock.json. Dieser Arbeitsordner enthält keine zusätzliche Studio-Webseite.
 
 ## Lokaler Produktionsweg
 
@@ -20,8 +20,7 @@ Node.js ab 22.13, Git, FFmpeg und FFprobe werden verwendet. Chrome wird lokal er
 | Befehl                                                    | Ergebnis                                                                                  |
 | --------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | `npm ci`                                                  | Paketversionen installieren und lokale Demo-Ressourcen vorbereiten                        |
-| `npm run skills:sync`                                     | Fehlende externe Skills aus festgelegten Commits installieren; bestehende Ordner erhalten |
-| `npm run doctor`                                          | Grundwerkzeuge, installierte Skills und konfigurierte Rollen prüfen                       |
+| `npm run doctor`                                          | Grundwerkzeuge und Chrome prüfen                       |
 | `npm run project:new -- mein-film Mein Film`              | Projektbriefing anlegen                                                                   |
 | `npm run render -- SzenenID`                              | MP4-Vorschau mit Prüfbildern und QA-Bericht                                               |
 | `npm run render -- SzenenID --final`                      | Volle registrierte Auflösung exportieren                                                  |
@@ -48,13 +47,12 @@ Die reproduzierbaren Anforderungen stehen in [toolkit/providers.json](../toolkit
 - HeyGen kann über eine repo-lokale CLI und gegebenenfalls über ein verfügbares Host-Plugin eingesetzt werden. Ein Providerkonto und eine Anmeldung sind für Generierungsaufträge erforderlich. `npm run heygen -- auth login --oauth` ist eine optionale interaktive Anmeldung durch den Nutzer; media:setup führt sie nicht aus.
 - Higgsfield ist ein optionaler zusätzlicher Medienanbieter. CLI-Einrichtung, Anmeldung und verfügbares Generierungsverfahren vor dem konkreten Einsatz prüfen. Das Repository installiert die CLI nicht global.
 - Native Bildgenerierung, Sprachdienste, Adobe, Figma und andere Hostwerkzeuge müssen im aktiven Codex-Auftrag verfügbar sein. Eine lokale Node-CLI kann ihre Verfügbarkeit oder Plugin-Verbindung nicht feststellen.
-- Die HyperFrames-Skills sind ergänzendes Wissen. skills:sync richtet keine HyperFrames-Laufzeit, kein Cloudkonto und keinen Bezahlplan ein.
 
 Keine Zugangsdaten oder Login-Sitzungen ins Repository schreiben. Anbieter nur innerhalb des autorisierten Auftrags und mit geklärter Einrichtung/Kosten einsetzen. Die Status- und Einrichtungskommandos führen keine externen Generierungsjobs aus.
 
 ## Reproduzierbarkeit und bekannte Grenzen
 
-Remotion-Pakete und Skill-Commits sind festgelegt. Zod ist bewusst auf 4.6.7 überschrieben, um GHSA-mrhx-c7xc-m3w5 zu beheben. Remotion erwartet derzeit 4.5.4 und kann eine Versionswarnung ausgeben. Bei Paketupdates die Abweichung erneut beurteilen; historische Exportnachweise stehen in [verification.md](verification.md).
+Die Remotion-Paketversionen sind festgelegt. Zod ist bewusst auf 4.6.7 überschrieben, um GHSA-mrhx-c7xc-m3w5 zu beheben. Remotion erwartet derzeit 4.5.4 und kann eine Versionswarnung ausgeben. Bei Paketupdates die Abweichung erneut beurteilen; historische Exportnachweise stehen in [verification.md](verification.md).
 
 Shared-Memory-Capture bleibt deaktiviert. Bei System-Chrome traten in früheren Prüfungen gekachelte Frames auf; der lokale macOS-Pfad verwendet deshalb einen Tab. Abschnittsweise Exporte und eine Sichtprüfung reduzieren das Risiko, beweisen aber keine abschließend geklärte Fehlerursache.
 
@@ -63,10 +61,9 @@ Historische Prüfungen vom 28. Oktober 2026 bestätigten Blender 5.2.2 LTS, HeyG
 ## Weitere Anleitungen
 
 - [Produktionsablauf](production.md)
-- [Skills und Rollen](toolkit.md)
 - [Praktische Medienintegration](hybrid-media.md)
 - [Quellen und Lizenzen](../THIRD_PARTY.md)
-- [Remotion Skills](https://www.remotion.dev/docs/ai/skills), [WebMCP](https://www.remotion.dev/docs/ai/webmcp), [Lizenz](https://www.remotion.dev/docs/license)
+- [WebMCP](https://www.remotion.dev/docs/ai/webmcp), [Lizenz](https://www.remotion.dev/docs/license)
 - [Zod-Sicherheitsmeldung](https://github.com/advisories/GHSA-mrhx-c7xc-m3w5)
 
 ## Referenzanalyse

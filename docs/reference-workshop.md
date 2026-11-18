@@ -29,8 +29,8 @@ Diese optionale Funktion benötigt ein bereits installiertes lokales openai-whis
 1. Bilder und Übergänge tatsächlich betrachten; beobachtete Zeitstellen und Grenzen notieren.
 2. Objektanteil und Position, Schriftrollen, Rollenetiketten, Akzentzustände, Materialien und Wechsel der Medien getrennt erfassen.
 3. Ein eigenes Skript mit demselben Grad an visueller Auflösung entwickeln.
-4. Mit look-development eigene Stilbilder und eine kurze Bewegungsprobe vergleichen. Keine zusätzliche Nutzer-Freigabe allein wegen dieses Ablaufs einholen.
-5. Mit audio-timing die eigentliche Sprecherfassung und den Schnitt verbinden; einen stummen Test als solchen kennzeichnen.
+4. Eigene Stilbilder und eine kurze Bewegungsprobe mit der Referenz vergleichen. Keine zusätzliche Nutzer-Freigabe allein wegen dieses Ablaufs einholen.
+5. Schnitt und Bewegung auf die tatsächliche Sprecherfassung abstimmen. Einen stummen Test als solchen kennzeichnen.
 6. Längeren Film erst aus geprüften Bausteinen zusammensetzen. Sichtung und Tonprüfung dokumentieren.
 
 Aktuelle eigene Auswertung: references/timswissen/measured-study.md. Bilder des Referenzkanals bleiben lokal. Das erzeugte Kalender-Stilbild unter public/assets/art-direction ist eine eigene KI-Materialvorlage, kein Quellframe oder fertiger Film.

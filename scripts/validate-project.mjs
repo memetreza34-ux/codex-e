@@ -1,7 +1,5 @@
-import { readFile, readdir, access } from "node:fs/promises";
+import { access } from "node:fs/promises";
 import { join } from "node:path";
-import { parse as toml } from "smol-toml";
-import { parse as yaml } from "yaml";
 import { z } from "zod";
 import { ROOT, config, projects } from "./core.mjs";
 const sceneSchema = z.object({
@@ -35,70 +33,6 @@ for (const raw of config.scenes) {
   if (next !== scene.durationInFrames || scene.posterFrame >= next)
     throw new Error(`Länge oder Poster ungültig: ${scene.id}`);
 }
-const agentNames = new Set();
-for (const file of await readdir(join(ROOT, ".codex/agents"))) {
-  if (!file.endsWith(".toml")) continue;
-  const a = toml(await readFile(join(ROOT, ".codex/agents", file), "utf8"));
-  for (const key of ["name", "description", "developer_instructions"])
-    if (typeof a[key] !== "string" || !a[key].trim())
-      throw new Error(`${file}: ${key} fehlt.`);
-  if (agentNames.has(a.name)) throw new Error(`Doppelter Agent: ${a.name}`);
-  agentNames.add(a.name);
-}
-toml(await readFile(join(ROOT, ".codex/config.toml"), "utf8"));
-const externalSkills = new Set(
-  (config.extraSkillsSources || []).flatMap((source) =>
-    source.skills.map((skill) => skill.name),
-  ),
-);
-let skills = 0;
-for (const dir of await readdir(join(ROOT, ".agents/skills"), {
-  withFileTypes: true,
-})) {
-  if (
-    !dir.isDirectory() ||
-    dir.name.startsWith("remotion-") ||
-    externalSkills.has(dir.name)
-  )
-    continue;
-  const text = await readFile(
-    join(ROOT, ".agents/skills", dir.name, "SKILL.md"),
-    "utf8",
-  );
-  const front = text.match(/^---\n([\s\S]*?)\n---/);
-  if (!front) throw new Error(`${dir.name}: Frontmatter fehlt.`);
-  const meta = yaml(front[1]);
-  if (meta.name !== dir.name || !meta.description)
-    throw new Error(`${dir.name}: Name oder Beschreibung ungültig.`);
-  yaml(
-    await readFile(
-      join(ROOT, ".agents/skills", dir.name, "agents/openai.yaml"),
-      "utf8",
-    ),
-  );
-  skills++;
-}
-for (const name of config.agentRoles || [])
-  if (!agentNames.has(name))
-    throw new Error(`Konfigurierte Agentenrolle fehlt: ${name}`);
-let extraInstalled = 0;
-for (const name of externalSkills) {
-  let source;
-  try {
-    source = await readFile(
-      join(ROOT, ".agents/skills", name, "SKILL.md"),
-      "utf8",
-    );
-  } catch (error) {
-    if (error.code === "ENOENT") continue;
-    throw error;
-  }
-  const front = source.match(/^---\r?\n([\s\S]*?)\r?\n---/);
-  const meta = front && yaml(front[1]);
-  if (!meta || meta.name !== name || !meta.description)
-    throw new Error(`Fremd-Skill ungültig: ${name}`);
-  extraInstalled++;
-}
 const saved = await projects();
 for (const brief of saved)
   if (brief.compositionId && !ids.has(brief.compositionId))
@@ -111,5 +45,5 @@ for (const file of [
 ])
   await access(join(ROOT, file));
 console.log(
-  `Geprüft: ${ids.size} Szenen, ${saved.length} Briefings, ${agentNames.size} Agenten, ${skills} Produktions-Skills, ${extraInstalled}/${externalSkills.size} Zusatz-Skills und lokale Medien.`,
+  `Geprüft: ${ids.size} Szenen, ${saved.length} Briefings, lokale Schriften und Demo-Ton.`,
 );

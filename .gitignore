@@ -9,27 +9,14 @@ work/
 .DS_Store
 *.log
 *.tmp
-.agents/skills/remotion-*/
-.agents/skills/remotion-installed.json
 public/fonts/*
 !public/fonts/.gitkeep
 public/audio/*
 !public/audio/.gitkeep
 .venv/
 
-# Installierte Fremd-Skills, reproduzierbar über skills:sync
-.agents/skills/canvas-design/
-.agents/skills/hyperframes/
-.agents/skills/hyperframes-cli/
-.agents/skills/hyperframes-registry/
-.agents/skills/media-use/
-
 .tools/
-.agents/skills/heygen-avatar/
-.agents/skills/heygen-video/
-.agents/skills/heygen-translate/
-.agents/skills/higgsfield-generate/
-.agents/skills/higgsfield-faceless-video/
+.agents/skills/
 
 # Lokale Python-Zwischendateien
 __pycache__/

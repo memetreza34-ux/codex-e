@@ -1,24 +1,21 @@
 # Codex E · Arbeitsordner für Animationen
 
-Hier arbeitet Codex an Erklärfilmen. Der Ordner enthält Skills, Agenten-Rollen, Werkzeuge, Vorlagen und wiederverwendbaren Videocode. Es gibt keine eigene Webseite oder Studio-App.
+Hier arbeitet Codex an Erklärfilmen. Der Ordner enthält Werkzeuge, Vorlagen und wiederverwendbaren Videocode. Es gibt keine eigene Webseite oder Studio-App.
 
 ## Inhalt
 
-- **33 Skills:** elf eigene Produktions-Skills, zwölf offizielle Remotion-Skills und zehn ergänzende Skills von Anthropic, HeyGen und Higgsfield.
-- **Zehn Agenten-Rollen:** Recherche, Referenzanalyse, Storyboard, Gestaltung, Animation, Ton, Formatredaktion, Medienauswahl, Compositing und Qualitätsprüfung.
 - **Werkzeuge:** Remotion, React, TypeScript, Three.js, FFmpeg/FFprobe sowie lokale Render- und Prüfskripte.
 - **Wiederverwendbarer Code:** acht Beispielanimationen, offene Schriften und synthetischer Demo-Ton. Darunter eine plastische Afrika-Karte, eine Reise mit Miniaturen und eine eigenständige Popcorn-Makroszene.
 - **Projektablage:** Briefings, Quellen, Storyboards und Abnahmen unter projects/.
 
 ## Verwendung
 
-Diesen Ordner in Codex öffnen und die gewünschte Animation beschreiben. Codex arbeitet direkt an den Dateien und verwendet passende Skills und Rollen. Dafür ist keine zusätzliche Oberfläche nötig.
+Diesen Ordner in Codex öffnen und die gewünschte Animation beschreiben. Codex arbeitet direkt an den Dateien. Dafür ist keine zusätzliche Oberfläche nötig.
 
 Bei einer frischen Kopie:
 
 ```sh
 npm ci
-npm run skills:sync
 npm run doctor
 ```
 
@@ -28,7 +25,7 @@ Node.js ab 22.13, Git, FFmpeg und FFprobe werden verwendet. Auf macOS installier
 
 | Befehl                                           | Aufgabe                                                    |
 | ------------------------------------------------ | ---------------------------------------------------------- |
-| `npm run doctor`                                 | Werkzeuge und Skills prüfen                                |
+| `npm run doctor`                                 | Werkzeuge prüfen                                |
 | `npm run project:new -- mein-film Mein Film`     | Projektbriefing anlegen                                    |
 | `npm run render -- WebsiteSzene`                 | MP4-Vorschau, Prüfbilder und Bericht erzeugen              |
 | `npm run render -- WebsiteSzene --final`         | Video in voller Auflösung exportieren                      |
@@ -44,12 +41,10 @@ Node.js ab 22.13, Git, FFmpeg und FFprobe werden verwendet. Auf macOS installier
 ## Ordner
 
 ```text
-.agents/skills/          Wiederverwendbare Arbeitsabläufe
-.codex/agents/           Zehn Agenten-Rollen
 AGENTS.md               Anweisungen für Codex in diesem Ordner
 scripts/                Render, QA, Ton, Einrichtung und Werkzeugprüfung
 src/remotion/           Wiederverwendbarer Animationscode
-workspace.config.json   Szenen, Formate, Kapitel und Skill-Quellversion
+workspace.config.json   Szenen, Formate und Kapitel
 projects/               Briefings, Quellen, Storyboards und Abnahmen
 public/                 Ressourcen für die Videoproduktion
 renders/                Generierte Videos und Prüfbilder (Git-ignore)
@@ -60,7 +55,7 @@ docs/                   Produktionsablauf und Werkzeughinweise
 
 ## Ganze Videoformate
 
-[Werkzeugsatz](docs/toolkit.md), [beobachtete Machart](references/timswissen/observations.md) und [eigener Formatleitfaden](references/timswissen/format-guide.md) verbinden die Skills mit einem durchgehenden Produktionsablauf. Ein vollständiger neuer Filmplan zum bisherigen Website-Thema liegt unter projects/website-format-pilot/.
+[Beobachtungen zur Machart](references/timswissen/observations.md) und ein [Formatleitfaden](references/timswissen/format-guide.md) ergänzen den Produktionsablauf. Ein vollständiger neuer Filmplan zum bisherigen Website-Thema liegt unter projects/website-format-pilot/.
 
 ## Fotos, Modelle und optionale Anbieter
 
@@ -81,6 +76,6 @@ Die Szene enthält eigene synthetische Klänge, keine Sprecherstimme. Der abschn
 
 ## Referenznähe verbessern
 
-Die [Referenzwerkstatt](docs/reference-workshop.md) ergänzt lokale Schnittanalyse, Bildstichproben und optionale Whisper-Wortzeiten. [Gemessene Beobachtungen](references/timswissen/measured-study.md) halten fest, was tatsächlich betrachtet wurde. `look-development` und `audio-timing` verbinden diese Ergebnisse mit eigenen Materialien und der eigentlichen Sprecherfassung.
+Die [Referenzwerkstatt](docs/reference-workshop.md) ergänzt lokale Schnittanalyse, Bildstichproben und optionale Whisper-Wortzeiten. [Gemessene Beobachtungen](references/timswissen/measured-study.md) halten fest, was tatsächlich betrachtet wurde. Eigene Stilbilder und eine kurze Bewegungsprobe helfen, die Beobachtungen auf den Film zu übertragen.
 
 Alle Renderbefehle nutzen jetzt denselben Kern. Neue Exporte erhalten eindeutige Namen; bestehende Videos werden erhalten. Aktueller Host-/Accountstatus liegt nur unter work/provider-status.json, deklarative Anforderungen unter toolkit/providers.json.

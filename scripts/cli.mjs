@@ -1,4 +1,4 @@
-import { access, readFile, writeFile, mkdir, readdir } from "node:fs/promises";
+import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { ROOT, config, saveProject, slugSchema } from "./core.mjs";
 import { run, renderVideo, qaMedia, browserPath } from "./render.mjs";
@@ -42,48 +42,6 @@ export async function doctor() {
       browser ||
       "Remotion lädt bei Bedarf Chrome Headless Shell. System-Chrome oder REMOTION_BROWSER_EXECUTABLE empfohlen.",
     required: false,
-  });
-  let skills = 0;
-  for (const name of config.skillsSource.names) {
-    try {
-      await access(join(ROOT, ".agents/skills", name, "SKILL.md"));
-      skills++;
-    } catch {
-      /* Optional until skills:sync is run. */
-    }
-  }
-  checks.push({
-    name: "Remotion-Skills",
-    ok: skills === config.skillsSource.names.length,
-    detail: `${skills}/${config.skillsSource.names.length} lokal installiert; npm run skills:sync`,
-    required: false,
-  });
-  const extras = (config.extraSkillsSources || []).flatMap(
-    (source) => source.skills,
-  );
-  let extraInstalled = 0;
-  for (const skill of extras) {
-    try {
-      await access(join(ROOT, ".agents/skills", skill.name, "SKILL.md"));
-      extraInstalled++;
-    } catch {
-      /* Optional until skills:sync is run. */
-    }
-  }
-  checks.push({
-    name: "Zusatz-Skills",
-    ok: extraInstalled === extras.length,
-    detail: `${extraInstalled}/${extras.length} lokal installiert; Canvas, HyperFrames, HeyGen und Higgsfield`,
-    required: false,
-  });
-  const agents = (await readdir(join(ROOT, ".codex/agents"))).filter((f) =>
-    f.endsWith(".toml"),
-  );
-  checks.push({
-    name: "Agenten-Rollen",
-    ok: agents.length >= (config.agentRoles?.length || 6),
-    detail: `${agents.length} Projektrollen konfiguriert`,
-    required: true,
   });
   return { ok: checks.filter((c) => c.required).every((c) => c.ok), checks };
 }
