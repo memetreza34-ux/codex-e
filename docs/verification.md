@@ -1,3 +1,7 @@
+# Historisches Prüfprotokoll (Legacy)
+
+**Achtung:** Die folgenden Angaben dokumentieren frühere Teststände der alten Animationswerkstatt. Sie sind kein Nachweis, dass die neue Langdoku-Pipeline bereits rendern kann. Aktuelle operative Vorgaben: docs/documentary-runbook.md und AGENTS.md.
+
 # Prüfung des Arbeitsordners
 
 Die eigene Weboberfläche, ihr Server und ihre Abhängigkeiten wurden auf Armans Klarstellung entfernt. Erhalten sind die Produktionswerkzeuge, Skills, Agenten-Rollen, Projektablagen und Video-Beispiele.
