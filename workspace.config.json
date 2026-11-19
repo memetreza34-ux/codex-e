@@ -1,5 +1,5 @@
 {
-  "name": "Codex E",
+  "name": "Codex E - Documentary Production",
   "scenes": [
     {
       "id": "WebsiteSzene",
@@ -10,7 +10,10 @@
       "width": 1920,
       "height": 1080,
       "posterFrame": 350,
-      "tags": ["Technik", "2D + Perspektive"],
+      "tags": [
+        "Technik",
+        "2D + Perspektive"
+      ],
       "beats": [
         {
           "label": "Der Klick",
@@ -43,7 +46,10 @@
       "width": 1920,
       "height": 1080,
       "posterFrame": 240,
-      "tags": ["Daten", "Diagramm"],
+      "tags": [
+        "Daten",
+        "Diagramm"
+      ],
       "beats": [
         {
           "label": "Die Zahl",
@@ -71,7 +77,10 @@
       "width": 1080,
       "height": 1920,
       "posterFrame": 360,
-      "tags": ["Geografie", "3D"],
+      "tags": [
+        "Geografie",
+        "3D"
+      ],
       "beats": [
         {
           "label": "Die Karte",
@@ -109,7 +118,11 @@
       "width": 1080,
       "height": 1920,
       "posterFrame": 300,
-      "tags": ["Geografie", "3D", "Miniaturen"],
+      "tags": [
+        "Geografie",
+        "3D",
+        "Miniaturen"
+      ],
       "beats": [
         {
           "label": "Der Kontinent",
@@ -147,7 +160,11 @@
       "width": 1080,
       "height": 1920,
       "posterFrame": 610,
-      "tags": ["Wissenschaft", "3D", "Makro"],
+      "tags": [
+        "Wissenschaft",
+        "3D",
+        "Makro"
+      ],
       "beats": [
         {
           "label": "Ein Korn",
@@ -195,7 +212,11 @@
       "width": 1080,
       "height": 1920,
       "posterFrame": 230,
-      "tags": ["Medienstudie", "Foto", "3D"],
+      "tags": [
+        "Medienstudie",
+        "Foto",
+        "3D"
+      ],
       "beats": [
         {
           "label": "Foto",
@@ -223,7 +244,11 @@
       "width": 1080,
       "height": 1920,
       "posterFrame": 660,
-      "tags": ["Wissen", "Kalender", "Hybrid"],
+      "tags": [
+        "Wissen",
+        "Kalender",
+        "Hybrid"
+      ],
       "beats": [
         {
           "label": "Dieser Tag",
@@ -261,7 +286,11 @@
       "width": 1080,
       "height": 1920,
       "posterFrame": 225,
-      "tags": ["Stilprobe", "Uhr", "Timing"],
+      "tags": [
+        "Stilprobe",
+        "Uhr",
+        "Timing"
+      ],
       "beats": [
         {
           "label": "Zeitpunkt",
@@ -286,105 +315,30 @@
     "commit": "30d4553ecd46fbc5212fd0ff006ae43af522158b",
     "names": [
       "remotion-best-practices",
-      "remotion-create",
-      "remotion-markup",
-      "remotion-studio",
       "remotion-render",
-      "remotion-captions",
-      "remotion-interactivity",
-      "remotion-maps",
       "remotion-multimedia",
-      "remotion-saas",
-      "remotion-docs",
-      "remotion-upgrade"
+      "remotion-maps",
+      "remotion-captions"
     ]
   },
-  "extraSkillsSources": [
-    {
-      "repository": "anthropics/skills",
-      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
-      "skills": [
-        {
-          "name": "canvas-design",
-          "path": "skills/canvas-design",
-          "purpose": "Eigene statische Stilbilder und Bildkomposition"
-        }
-      ]
-    },
-    {
-      "repository": "heygen-com/hyperframes",
-      "commit": "8b1f88b3c06175f43fbdbe1af6e53933847cb195",
-      "skills": [
-        {
-          "name": "hyperframes",
-          "path": "skills/hyperframes",
-          "purpose": "Ergänzende HTML-Video-Komposition"
-        },
-        {
-          "name": "hyperframes-cli",
-          "path": "skills/hyperframes-cli",
-          "purpose": "CLI- und Exportwissen für HyperFrames"
-        },
-        {
-          "name": "hyperframes-registry",
-          "path": "skills/hyperframes-registry",
-          "purpose": "Wissen über fertige gestaltbare Videobausteine"
-        },
-        {
-          "name": "media-use",
-          "path": "skills/media-use",
-          "purpose": "Medien, Ton und Herkunft im HyperFrames-Kontext"
-        }
-      ]
-    },
-    {
-      "repository": "heygen-com/skills",
-      "commit": "1bd5e4d33a028dfed3abf504c5e3dd644fb9ea8a",
-      "skills": [
-        {
-          "name": "heygen-avatar",
-          "path": "heygen-avatar",
-          "purpose": "Optionale Figuren und Identität bei ausdrücklichem Auftrag"
-        },
-        {
-          "name": "heygen-video",
-          "path": "heygen-video",
-          "purpose": "HeyGen-Präsenter- und Erklärvideos"
-        },
-        {
-          "name": "heygen-translate",
-          "path": "heygen-translate",
-          "purpose": "Optionale Übersetzung und Vertonung"
-        }
-      ]
-    },
-    {
-      "repository": "higgsfield-ai/skills",
-      "commit": "4d0757471a704dac8729ea3c2ef0f3f330e0d9b6",
-      "skills": [
-        {
-          "name": "higgsfield-generate",
-          "path": "higgsfield-generate",
-          "purpose": "Hochwertige Einzelclips, Bilder und 3D-Assets"
-        },
-        {
-          "name": "higgsfield-faceless-video",
-          "path": "higgsfield-faceless-video",
-          "purpose": "Erklärvideos ohne sichtbaren Sprecher"
-        }
-      ]
-    }
-  ],
+  "extraSkillsSources": [],
   "agentRoles": [
     "researcher",
     "story_designer",
-    "art_director",
+    "asset_researcher",
     "motion_designer",
     "audio_director",
-    "quality_reviewer",
-    "reference_analyst",
-    "format_editor",
-    "asset_researcher",
-    "compositing_artist"
-  ]
+    "quality_reviewer"
+  ],
+  "documentary": {
+    "format": "16:9",
+    "resolution": "1920x1080",
+    "fps": 30,
+    "targetMinutes": [
+      8,
+      12
+    ],
+    "publication": "manual-only",
+    "budgetPolicy": "no-paid-requests-without-confirmation"
+  }
 }
