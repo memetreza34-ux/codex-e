@@ -1,86 +1,39 @@
-# Codex E · Arbeitsordner für Animationen
+# Codex E – Documentary Production
 
-Hier arbeitet Codex an Erklärfilmen. Der Ordner enthält Skills, Agenten-Rollen, Werkzeuge, Vorlagen und wiederverwendbaren Videocode. Es gibt keine eigene Webseite oder Studio-App.
+Codex-Arbeitsordner für eigenständige deutschsprachige YouTube-Dokumentationen. Ziel: 8–12 Minuten, 16:9, nachvollziehbare Recherche, saubere Medienrechte, hochwertige Motion Graphics und eine tatsächlich geprüfte fertige MP4. Keine Shorts-Fabrik, kein zusätzliches Dashboard und keine neuen kostenpflichtigen Abos.
 
-## Inhalt
+## Schon vorhanden
+- Remotion, React und Three.js mit funktionierenden Beispielkompositionen sowie FFmpeg-Kommandos und technischen Tests.
+- Alte 9:16-Animationsstudien als Regressionstests und Ideenarchiv. Das sind ausdrücklich keine fertigen Langdokus.
+- Der Nutzer hat weitere Repositories: doku-visual-agent (Bild-/B-Roll-Suche), Technik-Kanal (Render/Voice), Geschichte-Kanal (Story-/Quellen-Gates), Claud-Youtube (Artikel-/Audio-/Remotion-Experimente). Sie werden nicht automatisch übernommen oder verändert.
 
-- **33 Skills:** elf eigene Produktions-Skills, zwölf offizielle Remotion-Skills und zehn ergänzende Skills von Anthropic, HeyGen und Higgsfield.
-- **Zehn Agenten-Rollen:** Recherche, Referenzanalyse, Storyboard, Gestaltung, Animation, Ton, Formatredaktion, Medienauswahl, Compositing und Qualitätsprüfung.
-- **Werkzeuge:** Remotion, React, TypeScript, Three.js, FFmpeg/FFprobe sowie lokale Render- und Prüfskripte.
-- **Wiederverwendbarer Code:** acht Beispielanimationen, offene Schriften und synthetischer Demo-Ton. Darunter eine plastische Afrika-Karte, eine Reise mit Miniaturen und eine eigenständige Popcorn-Makroszene.
-- **Projektablage:** Briefings, Quellen, Storyboards und Abnahmen unter projects/.
+## Neue Doku-Struktur
+- Sechs sinnvolle Codex-Agentenrollen statt zehn gleichzeitig konfigurierten Rollen.
+- Drei eigene Kern-Skills: documentary-research, documentary-story, documentary-rights.
+- Nur fünf ausgewählte offizielle Remotion-Skills werden beim optionalen Skill-Sync zusätzlich bezogen.
+- Neues Projekt-CLI mit Quellen-, Asset-, Szenen- und Freigabemanifest.
+- Keine automatische Veröffentlichung. Ein neuer Projektordner ist absichtlich zunächst NICHT freigegeben.
 
-## Verwendung
+## Schnellstart
+Benötigt Node.js ab 22.13, FFmpeg/FFprobe und Git. Für Remotion sind NPM-Abhängigkeiten notwendig.
 
-Diesen Ordner in Codex öffnen und die gewünschte Animation beschreiben. Codex arbeitet direkt an den Dateien und verwendet passende Skills und Rollen. Dafür ist keine zusätzliche Oberfläche nötig.
+    npm ci
+    npm run check
+    npm test
+    npm run doctor
+    npm run doku:new -- erste-doku "Die Technik hinter unseren Daten"
+    npm run doku:status -- erste-doku
+    npm run doku:check -- erste-doku
 
-Bei einer frischen Kopie:
+Hinweis: doku:check meldet zunächst Fehler und liefert Exitcode 1, solange echte Quellen, Nutzungsrechte, Szenen und die sieben Freigaben fehlen. Das ist ein Sicherheitsmerkmal, keine Fehlfunktion.
 
-```sh
-npm ci
-npm run skills:sync
-npm run doctor
-```
+## Was noch fehlt
+Der neue Doku-Freigabeprozess und Validator sind eine Grundlage, aber die 8–12-Minuten-Remotion-Komposition, vollständige Integration von doku-visual-agent und TTS mit Wort-Timing sind noch nicht implementiert. Kein MCP-Zugang zu Google Flow wird behauptet und es wurde noch keine Langdoku gerendert.
 
-Node.js ab 22.13, Git, FFmpeg und FFprobe werden verwendet. Auf macOS installiert `brew install ffmpeg` die beiden Medienwerkzeuge. System-Chrome wird erkannt. Das Basissystem braucht keine API-Schlüssel.
+## Dokumentation
+- docs/documentary-runbook.md: Produktion von A bis Z
+- docs/documentary-architecture.md: Rollen, Module, Datenflüsse, Integrationsgrenzen
+- docs/cleanup-audit.md: Audit und tatsächlich entfernte Teile
+- docs/production.md: alter Animationsworkflow, nur Legacy-Referenz
 
-## Befehle für Codex
-
-| Befehl                                           | Aufgabe                                                    |
-| ------------------------------------------------ | ---------------------------------------------------------- |
-| `npm run doctor`                                 | Werkzeuge und Skills prüfen                                |
-| `npm run project:new -- mein-film Mein Film`     | Projektbriefing anlegen                                    |
-| `npm run render -- WebsiteSzene`                 | MP4-Vorschau, Prüfbilder und Bericht erzeugen              |
-| `npm run render -- WebsiteSzene --final`         | Video in voller Auflösung exportieren                      |
-| `npm run render -- AfrikaStudie --final`         | 14 Sekunden lange 3D-Kartenszene im Hochformat exportieren |
-| `npm run render -- AfrikaReise --final`          | 35 Sekunden mit Nil, Stadt und Ozeanwellen exportieren     |
-| `npm run qa -- renders/datei.mp4`                | Vorhandenes Video technisch prüfen                         |
-| `npm run audio:normalize -- quelle.wav ziel.wav` | Sprache normalisieren                                      |
-| `npm run preview`                                | Bei Bedarf Remotions vorhandenes Vorschauwerkzeug öffnen   |
-| `npm run check` / `npm test`                     | Code und Arbeitsordner prüfen                              |
-
-`preview` ist ein optionales Werkzeug von Remotion. Es wird nicht automatisch gestartet.
-
-## Ordner
-
-```text
-.agents/skills/          Wiederverwendbare Arbeitsabläufe
-.codex/agents/           Zehn Agenten-Rollen
-AGENTS.md               Anweisungen für Codex in diesem Ordner
-scripts/                Render, QA, Ton, Einrichtung und Werkzeugprüfung
-src/remotion/           Wiederverwendbarer Animationscode
-workspace.config.json   Szenen, Formate, Kapitel und Skill-Quellversion
-projects/               Briefings, Quellen, Storyboards und Abnahmen
-public/                 Ressourcen für die Videoproduktion
-renders/                Generierte Videos und Prüfbilder (Git-ignore)
-docs/                   Produktionsablauf und Werkzeughinweise
-```
-
-[Produktionsablauf](docs/production.md) · [Werkzeuge](docs/tools.md) · [Quellen und Lizenzen](THIRD_PARTY.md)
-
-## Ganze Videoformate
-
-[Werkzeugsatz](docs/toolkit.md), [beobachtete Machart](references/timswissen/observations.md) und [eigener Formatleitfaden](references/timswissen/format-guide.md) verbinden die Skills mit einem durchgehenden Produktionsablauf. Ein vollständiger neuer Filmplan zum bisherigen Website-Thema liegt unter projects/website-format-pilot/.
-
-## Fotos, Modelle und optionale Anbieter
-
-Die [Medienwerkstatt](docs/hybrid-media.md) ergänzt echte Fotos, transparente Illustrationen, HDRI-Licht und eigene Blender-Modelle. `HybridAssets` ist eine neunsekündige technische Medienstudie. [Medienquellen](media/CREDITS.md) und Prüfsummen liegen im Repository.
-
-`npm run media:verify` prüft Assets. `npm run media:setup` installiert eine festgelegte HeyGen-CLI ausschließlich unter `.tools/`. `npm run media:doctor -- --accounts` prüft Werkzeuge und Accountstatus ohne Generierung. HeyGen und Higgsfield erfordern hier noch eine Anmeldung; es wurden keine bezahlten Generierungen gestartet.
-
-## 30-Sekunden-Beispiel: Schalttag
-
-`Schalttag` verbindet plastischen Papierkalender, laufende Blender-Uhr, echtes NASA-Foto und schematischen Erdumlauf zu einer zusammenhängenden Erklärung. Quellen, Skript und Bildfolge stehen unter projects/leap-day/.
-
-```sh
-node scripts/generate-leap-audio.mjs
-node scripts/render-chunks.mjs Schalttag audio/leap-day.wav
-```
-
-Die Szene enthält eigene synthetische Klänge, keine Sprecherstimme. Der abschnittsweise Export nutzt einen Chrome-Tab und fügt den vollständigen Ton anschließend ohne Abschnittsversatz hinzu. Exporte bleiben lokal unter renders/.
-
-## Referenznähe verbessern
-
-Die [Referenzwerkstatt](docs/reference-workshop.md) ergänzt lokale Schnittanalyse, Bildstichproben und optionale Whisper-Wortzeiten. [Gemessene Beobachtungen](references/timswissen/measured-study.md) halten fest, was tatsächlich betrachtet wurde. `look-development` und `audio-timing` verbinden diese Ergebnisse mit eigenen Materialien und der eigentlichen Sprecherfassung.
-
-Alle Renderbefehle nutzen jetzt denselben Kern. Neue Exporte erhalten eindeutige Namen; bestehende Videos werden erhalten. Aktueller Host-/Accountstatus liegt nur unter work/provider-status.json, deklarative Anforderungen unter toolkit/providers.json.
+Lokale Exporte gehören in renders/ oder documentaries/<slug>/exports/. Fremde Medien, Stimmaufnahmen oder API-Schlüssel gehören nicht ins öffentliche GitHub-Repository.

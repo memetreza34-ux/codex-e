@@ -1,0 +1,4 @@
+interface:
+  display_name: "Doku-Recherche"
+  short_description: "Quellen- und Claim-Recherche für eigenständige Dokus"
+  default_prompt: "Nutze $documentary-research für dieses Doku-Projekt."

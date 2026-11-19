@@ -28,7 +28,10 @@
     "reference:setup": "node scripts/reference/setup.mjs",
     "reference:fetch": "node scripts/reference/run.mjs fetch",
     "reference:analyze": "node scripts/reference/run.mjs analyze",
-    "reference:transcribe": "node scripts/reference/transcribe.mjs"
+    "reference:transcribe": "node scripts/reference/transcribe.mjs",
+    "doku:new": "node scripts/documentary.mjs new",
+    "doku:check": "node scripts/documentary.mjs check",
+    "doku:status": "node scripts/documentary.mjs status"
   },
   "dependencies": {
     "@react-three/fiber": "9.6.1",

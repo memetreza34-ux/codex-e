@@ -34,3 +34,8 @@ public/audio/*
 # Lokale Python-Zwischendateien
 __pycache__/
 *.py[cod]
+
+# Documentary media and exports remain local
+documentaries/*/media/
+documentaries/*/exports/
+documentaries/*/temp/

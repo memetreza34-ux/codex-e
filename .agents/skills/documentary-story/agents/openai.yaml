@@ -1,0 +1,4 @@
+interface:
+  display_name: "Doku-Story"
+  short_description: "8-12 Minuten Storytelling für belegte YouTube-Dokumentationen"
+  default_prompt: "Nutze $documentary-story für dieses Doku-Projekt."

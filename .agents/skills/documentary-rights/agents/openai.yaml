@@ -1,0 +1,4 @@
+interface:
+  display_name: "Doku-Medienrechte"
+  short_description: "Rechte, Provenienz und inhaltliche Passung von Doku-Medien"
+  default_prompt: "Nutze $documentary-rights für dieses Doku-Projekt."
