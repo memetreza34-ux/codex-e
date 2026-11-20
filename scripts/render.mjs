@@ -83,6 +83,39 @@ export async function qaMedia(file, { expected } = {}) {
     throw new Error(
       "Exportformat oder Dauer stimmt nicht mit der Szene überein.",
     );
+  let audioLevels = null;
+  if (media.audio) {
+    const levels = await run("ffmpeg", [
+      "-hide_banner",
+      "-nostats",
+      "-i",
+      file,
+      "-map",
+      "0:a:0",
+      "-af",
+      "astats=metadata=0:measure_perchannel=none:measure_overall=Peak_level+RMS_level",
+      "-f",
+      "null",
+      "-",
+    ]);
+    const peak = Number(
+      levels
+        .match(/Peak level dB:\s*([^\s]+)/)?.[1]
+        ?.replace("-inf", "-Infinity"),
+    );
+    const rms = Number(
+      levels
+        .match(/RMS level dB:\s*([^\s]+)/)?.[1]
+        ?.replace("-inf", "-Infinity"),
+    );
+    if (Number.isNaN(peak) || Number.isNaN(rms))
+      throw new Error("Audiopegel konnten nicht ermittelt werden.");
+    audioLevels = {
+      peakDbfs: Number.isFinite(peak) ? peak : null,
+      rmsDbfs: Number.isFinite(rms) ? rms : null,
+      signal: peak === -Infinity ? "silent" : "present",
+    };
+  }
   const sheet = file.replace(/\.[^.]+$/, "-sheet.jpg");
   const poster = file.replace(/\.[^.]+$/, "-poster.jpg");
   await run("ffmpeg", [
@@ -115,6 +148,7 @@ export async function qaMedia(file, { expected } = {}) {
   ]);
   const report = {
     ...media,
+    audioLevels,
     file: basename(file),
     contactSheet: basename(sheet),
     poster: basename(poster),

@@ -1,5 +1,7 @@
 # Produktionsablauf im Arbeitsordner
 
+Für Dreharbeiten, Interviews und Archivmaterial gilt der [Doku-Ablauf](documentary.md) mit Sichtung, Transkript, Rohschnitt und Tonabnahme.
+
 1. **Auftrag:** Arman beschreibt die Animation direkt in Codex. Ein neues Projekt unter projects/<slug>/ anlegen; npm run project:new kann das Briefing vorbereiten.
 2. **Recherche:** Zentrale Aussagen und Referenzen prüfen, direkte Quellen in sources.md festhalten.
 3. **Storyboard:** Erkenntnis, sichtbare Objekte, Bewegung, Timing und Übergänge im Projektordner beschreiben. Bei unklarer Richtung zunächst eine überzeugende kurze Szene entwickeln.

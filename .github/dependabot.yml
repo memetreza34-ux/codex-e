@@ -1,0 +1,15 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
+    allow:
+      - dependency-name: remotion
+      - dependency-name: "@remotion/*"
+    versioning-strategy: increase
+    groups:
+      remotion:
+        patterns:
+          - remotion
+          - "@remotion/*"

@@ -1,6 +1,6 @@
 # Codex E · Arbeitsordner für Animationen
 
-Hier arbeitet Codex an Erklärfilmen. Der Ordner enthält Werkzeuge, Vorlagen und wiederverwendbaren Videocode. Es gibt keine eigene Webseite oder Studio-App.
+Hier arbeitet Codex an Erklärfilmen und Dokus. Der Ordner enthält Werkzeuge, Vorlagen und wiederverwendbaren Videocode.
 
 ## Inhalt
 
@@ -52,6 +52,10 @@ docs/                   Produktionsablauf und Werkzeughinweise
 ```
 
 [Produktionsablauf](docs/production.md) · [Werkzeuge](docs/tools.md) · [Quellen und Lizenzen](THIRD_PARTY.md)
+
+## Dokus mit eigenen Aufnahmen
+
+Der [Doku-Ablauf](docs/documentary.md) führt von lokalen MOV-, MP4- und WAV-Dateien über ein deutsches Transkript zum bearbeitbaren Rohschnitt. `npm run doku` erstellt eine OpenTimelineIO-Timeline, rendert eine Vorschau und kann eine transparente Quelleneinblendung für den Schnitt exportieren.
 
 ## Ganze Videoformate
 

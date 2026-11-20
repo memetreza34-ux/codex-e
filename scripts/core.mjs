@@ -48,19 +48,15 @@ export async function projects() {
   const result = [];
   for (const e of entries) {
     if (!e.isDirectory() || !slugSchema.safeParse(e.name).success) continue;
+    const file = join(ROOT, "projects", e.name, "brief.json");
     try {
-      result.push(
-        briefSchema.parse(
-          JSON.parse(
-            await readFile(
-              join(ROOT, "projects", e.name, "brief.json"),
-              "utf8",
-            ),
-          ),
-        ),
-      );
-    } catch {
-      /* Ignore folders without a valid brief. */
+      result.push(briefSchema.parse(JSON.parse(await readFile(file, "utf8"))));
+    } catch (error) {
+      if (error.code !== "ENOENT")
+        throw new Error(
+          `Ungültiges Briefing in projects/${e.name}/brief.json: ${error.message}`,
+          { cause: error },
+        );
     }
   }
   return result;
